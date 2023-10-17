@@ -83,6 +83,7 @@ class SignUpViewController: UIViewController {
                 return
             }
             
+            //HOLA PRUEBA
             if let authData = authDataResult {
                 print(authData.user.email)
             }
