@@ -1,0 +1,6 @@
+framework module Pods_SportyStories {
+  umbrella header "Pods-SportyStories-umbrella.h"
+
+  export *
+  module * { export * }
+}
