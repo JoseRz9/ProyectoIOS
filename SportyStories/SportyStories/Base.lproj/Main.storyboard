@@ -36,20 +36,20 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Logo2" translatesAutoresizingMaskIntoConstraints="NO" id="FD4-nE-6EI">
-                                <rect key="frame" x="76" y="123" width="241" height="128"/>
+                                <rect key="frame" x="76" y="123" width="240" height="128"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="240" id="41R-EC-VLA"/>
                                     <constraint firstAttribute="height" constant="128" id="GZk-pA-jlL"/>
                                 </constraints>
                             </imageView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Registrate en Sporty Stories" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="xcf-h9-yVg">
-                                <rect key="frame" x="50.666666666666657" y="271" width="292" height="27.666666666666686"/>
+                                <rect key="frame" x="50" y="271" width="292" height="27.666666666666686"/>
                                 <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="23"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="PAu-8f-cil">
-                                <rect key="frame" x="60" y="384.33333333333331" width="273" height="35"/>
+                                <rect key="frame" x="60" y="384.33333333333331" width="272" height="35"/>
                                 <color key="backgroundColor" systemColor="labelColor"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="35" id="lxF-qU-w8K"/>
@@ -62,19 +62,19 @@
                                 </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="O" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" enabled="NO" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Pml-Mv-h7L">
-                                <rect key="frame" x="190" y="434.33333333333331" width="13" height="21"/>
+                                <rect key="frame" x="189.66666666666666" y="434.33333333333331" width="13" height="21"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Si tienes una cuenta" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" enabled="NO" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="7FY-7b-wxy">
-                                <rect key="frame" x="127.33333333333333" y="580.33333333333337" width="138.33333333333337" height="18"/>
+                                <rect key="frame" x="127.00000000000001" y="580.33333333333337" width="138.33333333333337" height="18"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="15"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Crea un perfil, sigue otras cuentas, crea tus propios videos y mucho mas" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" enabled="NO" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="dwG-Gc-Bnj">
-                                <rect key="frame" x="59" y="313.66666666666669" width="275" height="40.666666666666686"/>
+                                <rect key="frame" x="58.666666666666657" y="313.66666666666669" width="275" height="40.666666666666686"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="275" id="XWC-Gn-hHj"/>
                                 </constraints>
@@ -83,7 +83,7 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="MxA-fO-aWz">
-                                <rect key="frame" x="60" y="470.33333333333331" width="273" height="35"/>
+                                <rect key="frame" x="60" y="470.33333333333331" width="272" height="35"/>
                                 <color key="backgroundColor" name="AccentColor"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="35" id="oq3-Sj-uwm"/>
@@ -93,7 +93,7 @@
                                 <buttonConfiguration key="configuration" style="plain" title="Iniciar sesion con Facebook"/>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="wqt-JK-8lH">
-                                <rect key="frame" x="60" y="525.33333333333337" width="273" height="35"/>
+                                <rect key="frame" x="60" y="525.33333333333337" width="272" height="35"/>
                                 <color key="backgroundColor" red="1" green="0.23137254900000001" blue="0.18823529410000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="35" id="QTJ-Qs-6yu"/>
@@ -103,7 +103,7 @@
                                 <buttonConfiguration key="configuration" style="plain" title="Iniciar sesion con google"/>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="fcO-uW-ZPw">
-                                <rect key="frame" x="61" y="618.33333333333337" width="273" height="35"/>
+                                <rect key="frame" x="61" y="618.33333333333337" width="272" height="35"/>
                                 <color key="backgroundColor" systemColor="systemGray4Color"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="35" id="L1l-rp-dST"/>
@@ -212,7 +212,7 @@
                                     <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Password" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="iRL-hK-aLd">
                                         <rect key="frame" x="15" y="2" width="323" height="36"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                        <textInputTraits key="textInputTraits"/>
+                                        <textInputTraits key="textInputTraits" secureTextEntry="YES"/>
                                     </textField>
                                 </subviews>
                                 <constraints>
@@ -303,7 +303,7 @@
                                     <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Password" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="km7-jm-MB6">
                                         <rect key="frame" x="15" y="2" width="323" height="36"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                        <textInputTraits key="textInputTraits"/>
+                                        <textInputTraits key="textInputTraits" secureTextEntry="YES"/>
                                     </textField>
                                 </subviews>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>

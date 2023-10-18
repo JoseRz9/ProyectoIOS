@@ -7,6 +7,10 @@
 
 import UIKit
 import FirebaseAuth
+import FirebaseDatabase
+import FirebaseStorage
+import PhotosUI
+import ProgressHUD //mensjaes de validacion
 
 class SignUpViewController: UIViewController {
 
@@ -26,6 +30,9 @@ class SignUpViewController: UIViewController {
     
     // Boton de Ingresar
     @IBOutlet weak var signUpButton: UIButton!
+    
+    //creando variable image
+    var image: UIImage? = nil
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -73,21 +80,74 @@ class SignUpViewController: UIViewController {
     func setupView(){
         avatar.layer.cornerRadius = 60
         signUpButton.layer.cornerRadius = 18
+        avatar.clipsToBounds = true
+        avatar.isUserInteractionEnabled = true
+        let tapGesture = UITapGestureRecognizer(target: self, action: #selector(presentPicker))
+        avatar.addGestureRecognizer(tapGesture)
     }
     
-    
-    @IBAction func signUpDidTapped(_ sender: Any) {
-        Auth.auth().createUser(withEmail: "davidramirez04@mail.com", password: "Utec001"){ authDataResult, error in
-            if error != nil {
-                print(error!.localizedDescription)
-                return
-            }
-            
-            //HOLA PRUEBA
-            if let authData = authDataResult {
-                print(authData.user.email)
-            }
+    //funcion valida campos
+    func validateFields(){
+        guard let username = self.usernameTextfield.text, !username.isEmpty else{
+            //print("Por favor ingrese usuario")
+            ProgressHUD.showError("Por favor ingrese usuario")
+            return
         }
+        
+        guard let email = self.emailTextfiel.text, !email.isEmpty else{
+            //print("Por favor ingrese email")
+            ProgressHUD.showError("Por favor ingrese email")
+            return
+        }
+        
+        guard let password = self.passwordTextfield.text, !password.isEmpty else{
+            //print("Por favor ingrese password")
+            ProgressHUD.showError("Por favor ingrese password")
+            return
+        }
+    }
+    
+    //Accion boton Inscribirse
+    @IBAction func signUpDidTapped(_ sender: Any) {
+        self.validateFields()
+        self.signUp()
+        
     }
 }
 
+extension SignUpViewController: PHPickerViewControllerDelegate{
+    func picker(_ picker: PHPickerViewController, didFinishPicking results: [PHPickerResult]) {
+        for item in results{
+            item.itemProvider.loadObject(ofClass: UIImage.self){image, error in
+                if let imageSelected = image as? UIImage{
+                    DispatchQueue.main.async {
+                        self.avatar.image = imageSelected // asigna la imagen seleccionada al circulo del diseño
+                        self.image = imageSelected // asigna imagen seleccionada a la variable image
+                    }
+                }
+            }
+        }
+        dismiss(animated: true)
+    }
+    
+    @objc func presentPicker(){
+        var configuration: PHPickerConfiguration = PHPickerConfiguration()
+        configuration.filter = PHPickerFilter.images
+        configuration.selectionLimit = 1 // Asigna un limite de imagenes que puede seleccionar
+        
+        let picker: PHPickerViewController = PHPickerViewController(configuration: configuration)
+        picker.delegate = self
+        self.present(picker, animated:  true)
+    }
+}
+
+extension SignUpViewController{
+    func signUp(){ //ejecuta la clase de la Api y luego ejecuta la funcion que se encuentra en User Api
+        Api.User.signUp(withUsername: self.usernameTextfield.text!, email: self.emailTextfiel.text!, password: self.passwordTextfield.text!, image: self.image) {
+            print("Correcto")
+        } onError: { errorMessage in
+            print(errorMessage)
+        }
+
+    }
+}
