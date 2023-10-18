@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import ProgressHUD
 
 class SignInViewController: UIViewController {
 
@@ -28,6 +29,54 @@ class SignInViewController: UIViewController {
         setupPaswwordTextfield()
         setupView()
 
+    }
+    
+    
+    @IBAction func sigInDidTapped(_ sender: Any) {
+        self.view.endEditing(true)
+        self.validateFields()
+        self.signIn {
+            // switch view
+        } onError: { errorMessage in
+            ProgressHUD.showError(errorMessage)
+        }
+
+    }
+    
+}
+
+
+
+extension SignInViewController {
+    
+    
+    func signIn(onSuccess: @escaping() -> Void, onError: @escaping(_ errorMessage: String) -> Void){ //ejecuta la clase de la Api y luego ejecuta la funcion que se encuentra en User Api
+        
+        ProgressHUD.show()
+        Api.User.signIn(email: self.emailTextfield.text!, password: passwordTextfiel.text!) {
+            ProgressHUD.dismiss()
+            onSuccess()
+            print("Bienvenido")
+        } onError: { errorMessage in
+            onError(errorMessage)
+        }
+
+
+    }
+    
+    //funcion valida campos
+    func validateFields(){
+        guard let email = self.emailTextfield.text, !email.isEmpty else{
+            //print("Por favor ingrese email")
+            ProgressHUD.showError("Por favor ingrese email")
+            return
+        }
+        
+        guard let password = self.passwordTextfiel.text, !password.isEmpty else{
+            //print("Por favor ingrese password")
+            ProgressHUD.showError("Por favor ingrese password")
+            return
+        }
     }
     
     // Creando un titulo para la nueva pestaña de crear cuenta
