@@ -110,7 +110,12 @@ class SignUpViewController: UIViewController {
     //Accion boton Inscribirse
     @IBAction func signUpDidTapped(_ sender: Any) {
         self.validateFields()
-        self.signUp()
+        self.signUp {
+            //switch view
+        } onError: { errorMessage in
+            ProgressHUD.showError(errorMessage)
+        }
+
         
     }
 }
@@ -142,11 +147,14 @@ extension SignUpViewController: PHPickerViewControllerDelegate{
 }
 
 extension SignUpViewController{
-    func signUp(){ //ejecuta la clase de la Api y luego ejecuta la funcion que se encuentra en User Api
+    func signUp(onSuccess: @escaping() -> Void, onError: @escaping(_ errorMessage: String) -> Void){ //ejecuta la clase de la Api y luego ejecuta la funcion que se encuentra en User Api
+        
+        ProgressHUD.show()
         Api.User.signUp(withUsername: self.usernameTextfield.text!, email: self.emailTextfiel.text!, password: self.passwordTextfield.text!, image: self.image) {
-            print("Correcto")
+            ProgressHUD.dismiss()
+            onSuccess()
         } onError: { errorMessage in
-            print(errorMessage)
+            onError(errorMessage)
         }
 
     }

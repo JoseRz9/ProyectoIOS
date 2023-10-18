@@ -19,6 +19,8 @@
 		5D77936A2A9DBDD900C1C191 /* SignUpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D7793692A9DBDD800C1C191 /* SignUpViewController.swift */; };
 		5DBB789F2ADF9CA900B7E4C6 /* Api.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5DBB789E2ADF9CA800B7E4C6 /* Api.swift */; };
 		5DBB78A12ADF9CE100B7E4C6 /* UserApi.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5DBB78A02ADF9CE100B7E4C6 /* UserApi.swift */; };
+		5DBB78A32ADFA18000B7E4C6 /* StorageService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5DBB78A22ADFA18000B7E4C6 /* StorageService.swift */; };
+		5DBB78A52ADFA66700B7E4C6 /* Ref.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5DBB78A42ADFA66700B7E4C6 /* Ref.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -36,6 +38,8 @@
 		5D7793692A9DBDD800C1C191 /* SignUpViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpViewController.swift; sourceTree = "<group>"; };
 		5DBB789E2ADF9CA800B7E4C6 /* Api.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Api.swift; sourceTree = "<group>"; };
 		5DBB78A02ADF9CE100B7E4C6 /* UserApi.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserApi.swift; sourceTree = "<group>"; };
+		5DBB78A22ADFA18000B7E4C6 /* StorageService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StorageService.swift; sourceTree = "<group>"; };
+		5DBB78A42ADFA66700B7E4C6 /* Ref.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Ref.swift; sourceTree = "<group>"; };
 		65255DD348802709C3415554 /* Pods_SportyStories.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_SportyStories.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		E9B50E54A69A0926F457A82C /* Pods-SportyStories.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SportyStories.release.xcconfig"; path = "Target Support Files/Pods-SportyStories/Pods-SportyStories.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -88,6 +92,8 @@
 				5D5B3FED2ADE58A400382466 /* SignInViewController.swift */,
 				5DBB789E2ADF9CA800B7E4C6 /* Api.swift */,
 				5DBB78A02ADF9CE100B7E4C6 /* UserApi.swift */,
+				5DBB78A22ADFA18000B7E4C6 /* StorageService.swift */,
+				5DBB78A42ADFA66700B7E4C6 /* Ref.swift */,
 				5D70626E2A988CEE00C48CBE /* Main.storyboard */,
 				5D7062712A988CF000C48CBE /* Assets.xcassets */,
 				5D7062732A988CF000C48CBE /* LaunchScreen.storyboard */,
@@ -227,8 +233,10 @@
 				5D7062692A988CEE00C48CBE /* AppDelegate.swift in Sources */,
 				5D77936A2A9DBDD900C1C191 /* SignUpViewController.swift in Sources */,
 				5D5B3FEE2ADE58A400382466 /* SignInViewController.swift in Sources */,
+				5DBB78A32ADFA18000B7E4C6 /* StorageService.swift in Sources */,
 				5DBB78A12ADF9CE100B7E4C6 /* UserApi.swift in Sources */,
 				5D70626B2A988CEE00C48CBE /* SceneDelegate.swift in Sources */,
+				5DBB78A52ADFA66700B7E4C6 /* Ref.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
