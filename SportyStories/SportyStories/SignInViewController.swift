@@ -37,6 +37,10 @@ class SignInViewController: UIViewController {
         self.validateFields()
         self.signIn {
             // switch view
+            let scene = UIApplication.shared.connectedScenes.first
+            if let sd: SceneDelegate = (scene?.delegate as? SceneDelegate){
+                sd.configureInitialViewController()
+            }
         } onError: { errorMessage in
             ProgressHUD.showError(errorMessage)
         }
@@ -52,7 +56,7 @@ extension SignInViewController {
     
     func signIn(onSuccess: @escaping() -> Void, onError: @escaping(_ errorMessage: String) -> Void){ //ejecuta la clase de la Api y luego ejecuta la funcion que se encuentra en User Api
         
-        ProgressHUD.show()
+        ProgressHUD.show("Cargando...")
         Api.User.signIn(email: self.emailTextfield.text!, password: passwordTextfiel.text!) {
             ProgressHUD.dismiss()
             onSuccess()

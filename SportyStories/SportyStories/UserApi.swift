@@ -70,4 +70,17 @@ class UserApi{
             }
         }
     }
+    
+    func logOut(){
+        do{
+            try Auth.auth().signOut()
+        }catch{
+            ProgressHUD.showError(error.localizedDescription)
+            return
+        }
+        let scene = UIApplication.shared.connectedScenes.first
+        if let sd: SceneDelegate = (scene?.delegate as? SceneDelegate){
+            sd.configureInitialViewController()
+        }
+    }
 }
