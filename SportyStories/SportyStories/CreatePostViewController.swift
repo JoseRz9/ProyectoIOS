@@ -14,6 +14,9 @@ class CreatePostViewController: UIViewController {
     @IBOutlet weak var cancelButton: UIButton!
     @IBOutlet weak var captureButton: UIButton!
     @IBOutlet weak var captureButtonRingView: UIView!
+    @IBOutlet weak var flipCameraButton: UIButton!
+    @IBOutlet weak var flipCameraLabel: UILabel!
+    
     
     let photoFileOutput = AVCapturePhotoOutput()
     let captureSesion = AVCaptureSession()
@@ -54,6 +57,9 @@ class CreatePostViewController: UIViewController {
         captureButton.layer.zPosition = 1
         captureButtonRingView.layer.zPosition = 1
         cancelButton.layer.zPosition = 1
+        
+        flipCameraButton.layer.zPosition = 1
+        flipCameraLabel.layer.zPosition = 1
     }
     
     func setupCaptureSession() -> Bool {
@@ -90,4 +96,44 @@ class CreatePostViewController: UIViewController {
         return true
     }
   
+    
+    //Accion Boton de Voltear Camara
+    @IBAction func flipButtonDidTapped(_ sender: Any) {
+        captureSesion.beginConfiguration()
+        
+        let currentInput = captureSesion.inputs.first as? AVCaptureDeviceInput
+        let newCameraDevice = currentInput?.device.position == .back ? getDeviceFront(position: .front) : getDeviceBack(position: .back)
+        
+        let newVideoInput = try? AVCaptureDeviceInput(device: newCameraDevice!)
+        
+        if let inputs = captureSesion.inputs as? [AVCaptureDeviceInput]{
+            for input in inputs {
+                captureSesion.removeInput(input)
+            }
+        }
+        
+        if captureSesion.inputs.isEmpty{
+            captureSesion.addInput(newVideoInput!)
+        }
+        
+        captureSesion.commitConfiguration()
+    }
+    
+    //Obteniene la camara frontal del dispositivo
+    func getDeviceFront(position: AVCaptureDevice.Position) -> AVCaptureDevice?{
+        AVCaptureDevice.default(.builtInWideAngleCamera, for: .video, position: .front)
+    }
+    
+    
+    //Regresa a la camara principal
+    func getDeviceBack(position: AVCaptureDevice.Position) -> AVCaptureDevice?{
+        AVCaptureDevice.default(.builtInWideAngleCamera, for:  .video, position: .back)
+    }
+    
+    //Accion Boton de Cancelar X
+    @IBAction func handleDismiss(_ sender: Any) {
+        tabBarController?.selectedIndex = 0
+    }
+    
+    
 }
