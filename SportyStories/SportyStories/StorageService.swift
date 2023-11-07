@@ -20,8 +20,6 @@ class StorageService{
                 return
             }
             
-            
-            
             storageProfileRef.downloadURL{ url, error in
                 if let metaImageUrl = url?.absoluteString{
                     print(metaImageUrl)
