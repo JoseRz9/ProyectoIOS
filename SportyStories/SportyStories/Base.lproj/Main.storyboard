@@ -82,6 +82,9 @@
                                         </constraints>
                                         <state key="normal" title="Button"/>
                                         <buttonConfiguration key="configuration" style="plain"/>
+                                        <connections>
+                                            <action selector="captureButtonDidTapped:" destination="KHh-Fj-MpP" eventType="touchUpInside" id="IJN-TC-8vo"/>
+                                        </connections>
                                     </button>
                                 </subviews>
                                 <constraints>
@@ -288,11 +291,25 @@
                     </view>
                     <navigationItem key="navigationItem" id="pGt-sk-axu"/>
                     <connections>
+                        <outlet property="beautyButton" destination="RzJ-jh-PKF" id="DAa-L5-pYg"/>
+                        <outlet property="beautyLabel" destination="bpm-dQ-eZi" id="CWt-qQ-91N"/>
                         <outlet property="cancelButton" destination="q4u-NZ-2GH" id="fTX-Xz-ezm"/>
                         <outlet property="captureButton" destination="wwK-az-88D" id="6iB-oG-jIh"/>
                         <outlet property="captureButtonRingView" destination="8Ri-TD-cLQ" id="46q-yV-8Ob"/>
+                        <outlet property="effectsButton" destination="bKW-cd-uDg" id="L6f-vm-Gh8"/>
+                        <outlet property="filtersButton" destination="2Z8-ih-gXi" id="89O-aq-hzg"/>
+                        <outlet property="filtersLabel" destination="Oxl-Jl-Tnv" id="Xvq-Sh-VL8"/>
+                        <outlet property="flashButton" destination="tp8-0b-fI8" id="RPc-I8-pM5"/>
+                        <outlet property="flashLabel" destination="XaQ-jE-awC" id="5iz-wD-x2a"/>
                         <outlet property="flipCameraButton" destination="cUa-Pk-dTM" id="hKH-0u-P1h"/>
                         <outlet property="flipCameraLabel" destination="Qs2-aY-wza" id="5XN-Cg-eqR"/>
+                        <outlet property="galleryButton" destination="2Dz-sa-T0w" id="Kna-Dt-wu3"/>
+                        <outlet property="soundsView" destination="0V2-YE-SmQ" id="sh1-zm-yME"/>
+                        <outlet property="speedButton" destination="eEK-gL-tIK" id="5wN-q4-kX5"/>
+                        <outlet property="speedLabel" destination="ISe-ul-SWM" id="nxW-LQ-em0"/>
+                        <outlet property="timeCounterLabel" destination="yqI-DQ-jB2" id="AKb-jK-SI2"/>
+                        <outlet property="timerButton" destination="I2S-c8-o0Y" id="kwb-sZ-HhG"/>
+                        <outlet property="timersLabel" destination="sA1-EU-tHa" id="ZxF-p7-Yoc"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="RDM-4M-FeX" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
