@@ -41,6 +41,7 @@ class CreatePostViewController: UIViewController {
     var outPutURL : URL!
     var currentCameraDevice: AVCaptureDevice?
     var thumbnailImage: UIImage?
+    var recordedClips = [VideoClips]()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -67,9 +68,13 @@ class CreatePostViewController: UIViewController {
         navigationController?.setNavigationBarHidden(false, animated: animated)
     }
     
-    
+    //Accion de boton de caputrar video
     @IBAction func captureButtonDidTapped(_ sender: Any) {
-        
+        if movieOutput.isRecording == false {
+            startRecording()
+        } else {
+            stopRecording()
+        }
     }
     
     func setupView(){
@@ -79,13 +84,7 @@ class CreatePostViewController: UIViewController {
         captureButtonRingView.layer.borderWidth = 6
         captureButtonRingView.layer.cornerRadius = 85/2
         
-        
-        /*captureButton.layer.zPosition = 1
-        captureButtonRingView.layer.zPosition = 1
-        cancelButton.layer.zPosition = 1
-        flipCameraButton.layer.zPosition = 1
-        flipCameraLabel.layer.zPosition = 1*/
-        
+
         timeCounterLabel.backgroundColor = UIColor.black.withAlphaComponent(0.42)
         timeCounterLabel.layer.cornerRadius = 15
         timeCounterLabel.layer.borderColor = UIColor.white.cgColor
@@ -204,6 +203,43 @@ class CreatePostViewController: UIViewController {
         tabBarController?.selectedIndex = 0
     }
     
+    func tempUrl() -> URL? {
+        let directory = NSTemporaryDirectory() as NSString
+        if directory != "" {
+            let path = directory.appendingPathComponent(NSUUID().uuidString + ".mp4")
+            return URL(fileURLWithPath: path)
+        }
+        return nil
+    }
+    
+    func startRecording(){
+        if movieOutput.isRecording == false {
+            guard let connection = movieOutput.connection(with: .video) else {return}
+            if connection.isVideoOrientationSupported {
+                connection.preferredVideoStabilizationMode = AVCaptureVideoStabilizationMode.auto
+                let device = activeInput.device
+                if device.isSmoothAutoFocusSupported{
+                    do {
+                        try device.lockForConfiguration()
+                        device.isSmoothAutoFocusEnabled = false
+                        device.unlockForConfiguration()
+                    } catch {
+                        print("Error setting configuration: \(error)")
+                    }
+                }
+                outPutURL = tempUrl()
+                movieOutput.startRecording(to: outPutURL, recordingDelegate: self)
+            }
+        }
+    }
+    
+    func stopRecording(){
+        if movieOutput.isRecording == true {
+            movieOutput.stopRecording()
+            print("Detener la cuenta")
+        }
+    }
+    
 }
 
 extension CreatePostViewController: AVCaptureFileOutputRecordingDelegate {
@@ -221,6 +257,12 @@ extension CreatePostViewController: AVCaptureFileOutputRecordingDelegate {
                 thumbnailImage = generatedThumbnailImage
             }
         }
+    }
+    
+    func fileOutput(_ output: AVCaptureFileOutput, didStartRecordingTo fileURL: URL, from connections: [AVCaptureConnection]) {
+        let newRecordedClip = VideoClips(videoUrl: fileURL, cameraPosition: currentCameraDevice?.position)
+        recordedClips.append(newRecordedClip)
+        print("recordedClips:", recordedClips.count)
     }
     
     func didTakePicture(_ picture: UIImage, to orientation: UIImage.Orientation) -> UIImage {
