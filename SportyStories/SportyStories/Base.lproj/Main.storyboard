@@ -244,6 +244,25 @@
                                 <state key="normal" title="Button"/>
                                 <buttonConfiguration key="configuration" style="plain" image="efects"/>
                             </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="GvD-1B-18F">
+                                <rect key="frame" x="304.33333333333331" y="712" width="45" height="35"/>
+                                <color key="backgroundColor" systemColor="systemPinkColor"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="35" id="4kC-5Y-Z9n"/>
+                                    <constraint firstAttribute="width" constant="45" id="7Av-lk-zI1"/>
+                                </constraints>
+                                <state key="normal" title="Button"/>
+                                <buttonConfiguration key="configuration" style="plain" image="done-2"/>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="0lq-ao-agZ">
+                                <rect key="frame" x="249.33333333333337" y="712" width="45" height="35"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="35" id="GWT-pD-8ra"/>
+                                    <constraint firstAttribute="width" constant="45" id="U1B-c2-bFg"/>
+                                </constraints>
+                                <state key="normal" title="Button"/>
+                                <buttonConfiguration key="configuration" style="plain" image="delete"/>
+                            </button>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="10a-Yr-Rq6"/>
                         <color key="backgroundColor" systemColor="systemYellowColor"/>
@@ -251,8 +270,10 @@
                             <constraint firstItem="XaQ-jE-awC" firstAttribute="top" secondItem="tp8-0b-fI8" secondAttribute="bottom" constant="-5" id="3tb-pd-zhK"/>
                             <constraint firstItem="yqI-DQ-jB2" firstAttribute="top" secondItem="q4u-NZ-2GH" secondAttribute="bottom" constant="15" id="4dV-T1-01l"/>
                             <constraint firstItem="q4u-NZ-2GH" firstAttribute="top" secondItem="10a-Yr-Rq6" secondAttribute="top" constant="30" id="5aP-Kr-stU"/>
+                            <constraint firstItem="GvD-1B-18F" firstAttribute="leading" secondItem="8Ri-TD-cLQ" secondAttribute="trailing" constant="80" id="6Lf-xM-wb5"/>
                             <constraint firstItem="ISe-ul-SWM" firstAttribute="centerX" secondItem="eEK-gL-tIK" secondAttribute="centerX" id="7uE-hz-sJL"/>
                             <constraint firstItem="RzJ-jh-PKF" firstAttribute="top" secondItem="ISe-ul-SWM" secondAttribute="bottom" constant="12" id="82V-BS-M85"/>
+                            <constraint firstItem="GvD-1B-18F" firstAttribute="leading" secondItem="0lq-ao-agZ" secondAttribute="trailing" constant="10" id="Ezg-uZ-yhi"/>
                             <constraint firstItem="Qs2-aY-wza" firstAttribute="centerX" secondItem="cUa-Pk-dTM" secondAttribute="centerX" id="FWJ-mK-Ycs"/>
                             <constraint firstItem="sA1-EU-tHa" firstAttribute="top" secondItem="I2S-c8-o0Y" secondAttribute="bottom" constant="-5" id="H8b-CM-W37"/>
                             <constraint firstItem="Qs2-aY-wza" firstAttribute="top" secondItem="cUa-Pk-dTM" secondAttribute="bottom" constant="-5" id="Had-50-3gU"/>
@@ -283,10 +304,12 @@
                             <constraint firstItem="2Z8-ih-gXi" firstAttribute="top" secondItem="bpm-dQ-eZi" secondAttribute="bottom" constant="12" id="hKu-BX-frl"/>
                             <constraint firstItem="2Dz-sa-T0w" firstAttribute="leading" secondItem="8Ri-TD-cLQ" secondAttribute="trailing" constant="70" id="hSk-RE-FeF"/>
                             <constraint firstItem="cUa-Pk-dTM" firstAttribute="top" secondItem="10a-Yr-Rq6" secondAttribute="top" constant="30" id="kzE-05-cz3"/>
+                            <constraint firstItem="GvD-1B-18F" firstAttribute="centerY" secondItem="wwK-az-88D" secondAttribute="centerY" id="lh2-CW-fbY"/>
                             <constraint firstItem="tp8-0b-fI8" firstAttribute="top" secondItem="sA1-EU-tHa" secondAttribute="bottom" constant="12" id="op1-d5-5kr"/>
                             <constraint firstItem="tp8-0b-fI8" firstAttribute="centerX" secondItem="I2S-c8-o0Y" secondAttribute="centerX" id="vvY-Dg-dfb"/>
                             <constraint firstItem="I2S-c8-o0Y" firstAttribute="top" secondItem="Oxl-Jl-Tnv" secondAttribute="bottom" constant="12" id="xC1-du-OjT"/>
                             <constraint firstItem="bpm-dQ-eZi" firstAttribute="top" secondItem="RzJ-jh-PKF" secondAttribute="bottom" constant="-5" id="yit-Sw-8mq"/>
+                            <constraint firstItem="0lq-ao-agZ" firstAttribute="centerY" secondItem="GvD-1B-18F" secondAttribute="centerY" id="zGA-Rc-kOU"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="pGt-sk-axu"/>
@@ -296,6 +319,7 @@
                         <outlet property="cancelButton" destination="q4u-NZ-2GH" id="fTX-Xz-ezm"/>
                         <outlet property="captureButton" destination="wwK-az-88D" id="6iB-oG-jIh"/>
                         <outlet property="captureButtonRingView" destination="8Ri-TD-cLQ" id="46q-yV-8Ob"/>
+                        <outlet property="discardButton" destination="0lq-ao-agZ" id="16Y-1e-bj7"/>
                         <outlet property="effectsButton" destination="bKW-cd-uDg" id="L6f-vm-Gh8"/>
                         <outlet property="filtersButton" destination="2Z8-ih-gXi" id="89O-aq-hzg"/>
                         <outlet property="filtersLabel" destination="Oxl-Jl-Tnv" id="Xvq-Sh-VL8"/>
@@ -304,6 +328,7 @@
                         <outlet property="flipCameraButton" destination="cUa-Pk-dTM" id="hKH-0u-P1h"/>
                         <outlet property="flipCameraLabel" destination="Qs2-aY-wza" id="5XN-Cg-eqR"/>
                         <outlet property="galleryButton" destination="2Dz-sa-T0w" id="Kna-Dt-wu3"/>
+                        <outlet property="saveButton" destination="GvD-1B-18F" id="Xqn-Gl-eEc"/>
                         <outlet property="soundsView" destination="0V2-YE-SmQ" id="sh1-zm-yME"/>
                         <outlet property="speedButton" destination="eEK-gL-tIK" id="5wN-q4-kX5"/>
                         <outlet property="speedLabel" destination="ISe-ul-SWM" id="nxW-LQ-em0"/>
@@ -757,7 +782,9 @@
     <resources>
         <image name="Logo2" width="500" height="500"/>
         <image name="beauty" width="24" height="24"/>
+        <image name="delete" width="32" height="32"/>
         <image name="discover" width="24" height="24"/>
+        <image name="done-2" width="24" height="24"/>
         <image name="efects" width="32" height="32"/>
         <image name="filters" width="24" height="24"/>
         <image name="flash" width="24" height="24"/>

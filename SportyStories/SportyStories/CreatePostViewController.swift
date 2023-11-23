@@ -32,6 +32,9 @@ class CreatePostViewController: UIViewController {
     @IBOutlet weak var timersLabel: UILabel!
     @IBOutlet weak var filtersLabel: UILabel!
     @IBOutlet weak var beautyLabel: UILabel!
+    @IBOutlet weak var discardButton: UIButton!
+    @IBOutlet weak var saveButton: UIButton!
+    
     
     let photoFileOutput = AVCapturePhotoOutput()
     let captureSesion = AVCaptureSession()
@@ -42,6 +45,7 @@ class CreatePostViewController: UIViewController {
     var currentCameraDevice: AVCaptureDevice?
     var thumbnailImage: UIImage?
     var recordedClips = [VideoClips]()
+    var isRecording = false
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -93,6 +97,11 @@ class CreatePostViewController: UIViewController {
         
         soundsView.layer.cornerRadius = 12
         
+        saveButton.layer.cornerRadius = 12
+        saveButton.backgroundColor = UIColor(red: 254/255, green: 44/255, blue: 85/255, alpha: 1.0)
+        saveButton.alpha = 0
+        discardButton.alpha = 0
+        
         [self.captureButton,
          self.captureButtonRingView,
          self.cancelButton,
@@ -109,7 +118,9 @@ class CreatePostViewController: UIViewController {
          self.galleryButton,
          self.effectsButton,
          self.soundsView,
-         self.timeCounterLabel].forEach{ subView in subView?.layer.zPosition = 1}
+         self.timeCounterLabel,
+         self.saveButton,
+         self.discardButton].forEach{ subView in subView?.layer.zPosition = 1}
         
         
     }
@@ -229,6 +240,7 @@ class CreatePostViewController: UIViewController {
                 }
                 outPutURL = tempUrl()
                 movieOutput.startRecording(to: outPutURL, recordingDelegate: self)
+                handledAnimateRecordButton()
             }
         }
     }
@@ -236,8 +248,90 @@ class CreatePostViewController: UIViewController {
     func stopRecording(){
         if movieOutput.isRecording == true {
             movieOutput.stopRecording()
+            handledAnimateRecordButton()
             print("Detener la cuenta")
         }
+    }
+    
+    //Funcion de animacion del boton de capturar imagen o video, guardar o cancelar lo grabado
+    func handledAnimateRecordButton(){
+        UIView.animate(withDuration: 0.5, delay: 0, usingSpringWithDamping: 1, initialSpringVelocity: 1, options: .curveEaseIn, animations: { [weak self] in
+            guard let self = self else {return}
+            
+            if self.isRecording == false {
+                self.captureButton.transform = CGAffineTransform(scaleX: 0.5, y: 0.5)
+                self.captureButton.layer.cornerRadius = 5
+                self.captureButtonRingView.transform = CGAffineTransform(scaleX: 1.7, y: 1.7)
+                
+                self.saveButton.alpha = 0
+                self.discardButton.alpha = 0
+                
+                [self.flipCameraButton,
+                 self.flipCameraLabel,
+                 self.speedLabel,
+                 self.speedButton,
+                 self.beautyLabel,
+                 self.beautyButton,
+                 self.filtersLabel,
+                 self.filtersButton,
+                 self.timersLabel,
+                 self.timerButton,
+                 self.galleryButton,
+                 self.effectsButton,
+                 self.soundsView,
+                 self.timeCounterLabel].forEach{ subView in subView?.isHidden = true}
+            } else {
+                self.captureButton.transform = CGAffineTransform.identity
+                self.captureButton.layer.cornerRadius = 68/2
+                self.captureButtonRingView.transform = CGAffineTransform.identity
+                
+                self.handleResetAllVisibilityToIdentity()
+            }
+        }) {[weak self] onComplete in
+            guard let self = self else {return}
+            self.isRecording = !self.isRecording
+        }
+    }
+    
+    func handleResetAllVisibilityToIdentity(){
+        if recordedClips.isEmpty == true {
+            [self.flipCameraButton,
+             self.flipCameraLabel,
+             self.speedLabel,
+             self.speedButton,
+             self.beautyLabel,
+             self.beautyButton,
+             self.filtersLabel,
+             self.filtersButton,
+             self.timersLabel,
+             self.timerButton,
+             self.galleryButton,
+             self.effectsButton,
+             self.soundsView,
+             self.timeCounterLabel].forEach{ subView in subView?.isHidden = false}
+            saveButton.alpha = 0
+            discardButton.alpha = 0
+            print("Clips Grabados:", "esta vacio")
+        } else {
+            [self.flipCameraButton,
+             self.flipCameraLabel,
+             self.speedLabel,
+             self.speedButton,
+             self.beautyLabel,
+             self.beautyButton,
+             self.filtersLabel,
+             self.filtersButton,
+             self.timersLabel,
+             self.timerButton,
+             self.galleryButton,
+             self.effectsButton,
+             self.soundsView,
+             self.timeCounterLabel].forEach{ subView in subView?.isHidden = true}
+            saveButton.alpha = 1
+            discardButton.alpha = 1
+            print("clips grabados:", "no esta vacio")
+        }
+       
     }
     
 }
