@@ -46,6 +46,15 @@ class CreatePostViewController: UIViewController {
     var thumbnailImage: UIImage?
     var recordedClips = [VideoClips]()
     var isRecording = false
+    var videoDurationOfLastClip = 0
+    var recordingTimer: Timer?
+    var currentMaxRecordingDuration: Int = 15 {
+        didSet {
+            timeCounterLabel.text = "\(currentMaxRecordingDuration)s"
+        }
+    }
+    var total_RecordedTime_In_Secs = 0
+    var total_RecordedTime_In_Minutes = 0
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -74,6 +83,10 @@ class CreatePostViewController: UIViewController {
     
     //Accion de boton de caputrar video
     @IBAction func captureButtonDidTapped(_ sender: Any) {
+        handleDidTapRecord()
+    }
+    
+    func handleDidTapRecord(){
         if movieOutput.isRecording == false {
             startRecording()
         } else {
@@ -245,10 +258,12 @@ class CreatePostViewController: UIViewController {
         }
     }
     
+    //Detiene la cuenta de grabacion y tiempo
     func stopRecording(){
         if movieOutput.isRecording == true {
             movieOutput.stopRecording()
             handledAnimateRecordButton()
+            stopTimer()
             print("Detener la cuenta")
         }
     }
@@ -278,8 +293,7 @@ class CreatePostViewController: UIViewController {
                  self.timerButton,
                  self.galleryButton,
                  self.effectsButton,
-                 self.soundsView,
-                 self.timeCounterLabel].forEach{ subView in subView?.isHidden = true}
+                 self.soundsView].forEach{ subView in subView?.isHidden = true}
             } else {
                 self.captureButton.transform = CGAffineTransform.identity
                 self.captureButton.layer.cornerRadius = 68/2
@@ -307,8 +321,7 @@ class CreatePostViewController: UIViewController {
              self.timerButton,
              self.galleryButton,
              self.effectsButton,
-             self.soundsView,
-             self.timeCounterLabel].forEach{ subView in subView?.isHidden = false}
+             self.soundsView].forEach{ subView in subView?.isHidden = false}
             saveButton.alpha = 0
             discardButton.alpha = 0
             print("Clips Grabados:", "esta vacio")
@@ -325,8 +338,7 @@ class CreatePostViewController: UIViewController {
              self.timerButton,
              self.galleryButton,
              self.effectsButton,
-             self.soundsView,
-             self.timeCounterLabel].forEach{ subView in subView?.isHidden = true}
+             self.soundsView].forEach{ subView in subView?.isHidden = true}
             saveButton.alpha = 1
             discardButton.alpha = 1
             print("clips grabados:", "no esta vacio")
@@ -357,6 +369,7 @@ extension CreatePostViewController: AVCaptureFileOutputRecordingDelegate {
         let newRecordedClip = VideoClips(videoUrl: fileURL, cameraPosition: currentCameraDevice?.position)
         recordedClips.append(newRecordedClip)
         print("recordedClips:", recordedClips.count)
+        startTimer()
     }
     
     func didTakePicture(_ picture: UIImage, to orientation: UIImage.Orientation) -> UIImage {
@@ -379,5 +392,34 @@ extension CreatePostViewController: AVCaptureFileOutputRecordingDelegate {
         }
         
         return nil
+    }
+}
+
+
+//Marca Tiempo de grabaciòn
+
+extension CreatePostViewController {
+    func startTimer() {
+        videoDurationOfLastClip = 0
+        stopTimer()
+        recordingTimer = Timer.scheduledTimer(withTimeInterval: 0.1, repeats: true, block: { [weak self] _ in
+            self?.timerTick()
+        })
+    }
+    
+    func timerTick(){
+        total_RecordedTime_In_Secs += 1
+        videoDurationOfLastClip += 1
+        
+        let time_limit = currentMaxRecordingDuration * 10
+        if total_RecordedTime_In_Secs == time_limit {
+            handleDidTapRecord()
+        }
+        let countDownSec: Int = Int(currentMaxRecordingDuration) - total_RecordedTime_In_Secs / 10
+        timeCounterLabel.text = "\(countDownSec)s"
+    }
+    
+    func stopTimer(){
+        recordingTimer?.invalidate()
     }
 }
