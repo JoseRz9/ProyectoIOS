@@ -262,6 +262,9 @@
                                 </constraints>
                                 <state key="normal" title="Button"/>
                                 <buttonConfiguration key="configuration" style="plain" image="delete"/>
+                                <connections>
+                                    <action selector="discardButtonDidTapped:" destination="KHh-Fj-MpP" eventType="touchUpInside" id="PLS-pa-rRV"/>
+                                </connections>
                             </button>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="10a-Yr-Rq6"/>

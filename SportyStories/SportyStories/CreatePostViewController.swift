@@ -56,6 +56,8 @@ class CreatePostViewController: UIViewController {
     var total_RecordedTime_In_Secs = 0
     var total_RecordedTime_In_Minutes = 0
     
+    lazy var segmentedProgressView = SegmentedProgressView(width: view.frame.width - 17.5)
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -114,6 +116,14 @@ class CreatePostViewController: UIViewController {
         saveButton.backgroundColor = UIColor(red: 254/255, green: 44/255, blue: 85/255, alpha: 1.0)
         saveButton.alpha = 0
         discardButton.alpha = 0
+        
+        //barrita de carga al momento de crear un video
+        view.addSubview(segmentedProgressView)
+        segmentedProgressView.topAnchor.constraint(equalTo: view.topAnchor, constant: 50).isActive = true
+        segmentedProgressView.centerXAnchor.constraint(equalTo: view.centerXAnchor).isActive = true
+        segmentedProgressView.widthAnchor.constraint(equalToConstant: view.frame.width - 17.5).isActive = true
+        segmentedProgressView.heightAnchor.constraint(equalToConstant: 6).isActive = true
+        segmentedProgressView.translatesAutoresizingMaskIntoConstraints = false
         
         [self.captureButton,
          self.captureButtonRingView,
@@ -264,7 +274,62 @@ class CreatePostViewController: UIViewController {
             movieOutput.stopRecording()
             handledAnimateRecordButton()
             stopTimer()
+            segmentedProgressView.pauseProgress()
             print("Detener la cuenta")
+        }
+    }
+    
+    //Accion de boton de eliminar video que se esta guardando en memoria
+    @IBAction func discardButtonDidTapped(_ sender: Any) {
+        let alertVC = UIAlertController(title: "Descartar el ultimo clip?", message: nil, preferredStyle: .alert)
+        let discardAction = UIAlertAction(title: "Descartar", style: .default) { [weak self] (_) in
+            self?.handleDiscardLastRecordedClip()
+        }
+        let keepAction = UIAlertAction(title: "Mantener", style: .cancel) { (_) in
+            
+        }
+        
+        alertVC.addAction(discardAction)
+        alertVC.addAction(keepAction)
+        present(alertVC, animated: true)
+    }
+    
+    //Descarta todos los cambios o grabaciones almacenadas en memoria y reinicia los coteos
+    func handleDiscardLastRecordedClip() {
+        print("Descartar")
+        outPutURL = nil
+        thumbnailImage = nil
+        recordedClips.removeLast()
+        handleResetAllVisibilityToIdentity()
+        handleSetNewOutputURLAndThumbnailImage()
+        segmentedProgressView.handleRemoveLastSegment()
+        
+        if recordedClips.isEmpty == true {
+            self.handleResetTimersAndProgressViewToZero()
+        } else if recordedClips.isEmpty == false {
+            self.handleCalculateDurationLeft()
+        }
+        
+    }
+    
+    func handleCalculateDurationLeft() {
+        let timeToDiscard = videoDurationOfLastClip
+        let currentCombineTime = total_RecordedTime_In_Secs
+        let newVideoDuration = currentCombineTime - timeToDiscard
+        total_RecordedTime_In_Secs = newVideoDuration
+        let countDownSec: Int = Int(currentMaxRecordingDuration) - total_RecordedTime_In_Secs / 10
+        timeCounterLabel.text = "\(countDownSec)"
+    }
+    
+    func handleSetNewOutputURLAndThumbnailImage( ) {
+        outPutURL = recordedClips.last?.videoUrl
+        let currentUrl: URL? = outPutURL
+        guard let currentUrlUnwrapped = currentUrl else {return}
+        guard let generatedThumbnailImage =  generatedVideoThumbnail(withfile: currentUrlUnwrapped) else {return}
+        if currentCameraDevice?.position == .front {
+            thumbnailImage = didTakePicture(generatedThumbnailImage, to: .upMirrored)
+        } else {
+            thumbnailImage = generatedThumbnailImage
         }
     }
     
@@ -281,17 +346,7 @@ class CreatePostViewController: UIViewController {
                 self.saveButton.alpha = 0
                 self.discardButton.alpha = 0
                 
-                [self.flipCameraButton,
-                 self.flipCameraLabel,
-                 self.speedLabel,
-                 self.speedButton,
-                 self.beautyLabel,
-                 self.beautyButton,
-                 self.filtersLabel,
-                 self.filtersButton,
-                 self.timersLabel,
-                 self.timerButton,
-                 self.galleryButton,
+                [self.galleryButton,
                  self.effectsButton,
                  self.soundsView].forEach{ subView in subView?.isHidden = true}
             } else {
@@ -309,34 +364,14 @@ class CreatePostViewController: UIViewController {
     
     func handleResetAllVisibilityToIdentity(){
         if recordedClips.isEmpty == true {
-            [self.flipCameraButton,
-             self.flipCameraLabel,
-             self.speedLabel,
-             self.speedButton,
-             self.beautyLabel,
-             self.beautyButton,
-             self.filtersLabel,
-             self.filtersButton,
-             self.timersLabel,
-             self.timerButton,
-             self.galleryButton,
+            [self.galleryButton,
              self.effectsButton,
              self.soundsView].forEach{ subView in subView?.isHidden = false}
             saveButton.alpha = 0
             discardButton.alpha = 0
             print("Clips Grabados:", "esta vacio")
         } else {
-            [self.flipCameraButton,
-             self.flipCameraLabel,
-             self.speedLabel,
-             self.speedButton,
-             self.beautyLabel,
-             self.beautyButton,
-             self.filtersLabel,
-             self.filtersButton,
-             self.timersLabel,
-             self.timerButton,
-             self.galleryButton,
+            [self.galleryButton,
              self.effectsButton,
              self.soundsView].forEach{ subView in subView?.isHidden = true}
             saveButton.alpha = 1
@@ -415,8 +450,25 @@ extension CreatePostViewController {
         if total_RecordedTime_In_Secs == time_limit {
             handleDidTapRecord()
         }
+        
+        //carga la barrita de progreso configurada en setupView al presionar grabar
+        let startTime = 0
+        let trimedTime: Int = Int(currentMaxRecordingDuration) - startTime
+        let positiveOrZero = max(total_RecordedTime_In_Secs, 0)
+        let progress = Float(positiveOrZero) / Float(trimedTime) / 10
+        segmentedProgressView.setProgress(CGFloat(progress))
+        
         let countDownSec: Int = Int(currentMaxRecordingDuration) - total_RecordedTime_In_Secs / 10
         timeCounterLabel.text = "\(countDownSec)s"
+    }
+    
+    func handleResetTimersAndProgressViewToZero() {
+        total_RecordedTime_In_Secs = 0
+        total_RecordedTime_In_Minutes = 0
+        videoDurationOfLastClip = 0
+        stopTimer()
+        segmentedProgressView.setProgress(0)
+        timeCounterLabel.text = "\(currentMaxRecordingDuration)"
     }
     
     func stopTimer(){

@@ -12,6 +12,7 @@
 		5D5590642AF1E59200453D66 /* CreatePostViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D5590632AF1E59200453D66 /* CreatePostViewController.swift */; };
 		5D5B3FEE2ADE58A400382466 /* SignInViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D5B3FED2ADE58A400382466 /* SignInViewController.swift */; };
 		5D5B3FF02ADE60A500382466 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 5D5B3FEF2ADE60A400382466 /* GoogleService-Info.plist */; };
+		5D6C11172B159E0B00A820C0 /* SegmentedProgressView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D6C11162B159E0B00A820C0 /* SegmentedProgressView.swift */; };
 		5D7062692A988CEE00C48CBE /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D7062682A988CEE00C48CBE /* AppDelegate.swift */; };
 		5D70626B2A988CEE00C48CBE /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D70626A2A988CEE00C48CBE /* SceneDelegate.swift */; };
 		5D70626D2A988CEE00C48CBE /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D70626C2A988CEE00C48CBE /* ViewController.swift */; };
@@ -32,6 +33,7 @@
 		5D5590632AF1E59200453D66 /* CreatePostViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreatePostViewController.swift; sourceTree = "<group>"; };
 		5D5B3FED2ADE58A400382466 /* SignInViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignInViewController.swift; sourceTree = "<group>"; };
 		5D5B3FEF2ADE60A400382466 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		5D6C11162B159E0B00A820C0 /* SegmentedProgressView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SegmentedProgressView.swift; sourceTree = "<group>"; };
 		5D7062652A988CEE00C48CBE /* SportyStories.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SportyStories.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		5D7062682A988CEE00C48CBE /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		5D70626A2A988CEE00C48CBE /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -98,6 +100,7 @@
 				5D5B3FED2ADE58A400382466 /* SignInViewController.swift */,
 				5D5590612AF1DC0100453D66 /* ProfileViewController.swift */,
 				5D5590632AF1E59200453D66 /* CreatePostViewController.swift */,
+				5D6C11162B159E0B00A820C0 /* SegmentedProgressView.swift */,
 				5DAE5B1B2B0F0914004B2879 /* VideoClips.swift */,
 				5DBB789E2ADF9CA800B7E4C6 /* Api.swift */,
 				5DBB78A02ADF9CE100B7E4C6 /* UserApi.swift */,
@@ -246,6 +249,7 @@
 				5D5B3FEE2ADE58A400382466 /* SignInViewController.swift in Sources */,
 				5DBB78A32ADFA18000B7E4C6 /* StorageService.swift in Sources */,
 				5D5590642AF1E59200453D66 /* CreatePostViewController.swift in Sources */,
+				5D6C11172B159E0B00A820C0 /* SegmentedProgressView.swift in Sources */,
 				5DBB78A12ADF9CE100B7E4C6 /* UserApi.swift in Sources */,
 				5D70626B2A988CEE00C48CBE /* SceneDelegate.swift in Sources */,
 				5DBB78A52ADFA66700B7E4C6 /* Ref.swift in Sources */,
