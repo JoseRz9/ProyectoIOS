@@ -279,6 +279,24 @@ class CreatePostViewController: UIViewController {
         }
     }
     
+    
+    @IBAction func saveButtonDidTapped(_ sender: Any) {
+        let previewVC = UIStoryboard(name: "Main", bundle: .main).instantiateViewController(identifier: "PreviewCapturedViewController", creator: {
+          coder -> PreviewCapturedViewController? in
+            PreviewCapturedViewController(coder: coder, recordedClips: self.recordedClips)
+        })
+        
+        previewVC.viewWillDenitRestarVideoSession = { [weak self] in
+            guard let self = self else {return}
+            if self.setupCaptureSession() {
+                DispatchQueue.global(qos: .background).async {
+                    self.captureSesion.startRunning()
+                }
+            }
+        }
+        navigationController?.pushViewController(previewVC, animated: true)
+    }
+    
     //Accion de boton de eliminar video que se esta guardando en memoria
     @IBAction func discardButtonDidTapped(_ sender: Any) {
         let alertVC = UIAlertController(title: "Descartar el ultimo clip?", message: nil, preferredStyle: .alert)

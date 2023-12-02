@@ -244,16 +244,6 @@
                                 <state key="normal" title="Button"/>
                                 <buttonConfiguration key="configuration" style="plain" image="efects"/>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="GvD-1B-18F">
-                                <rect key="frame" x="304.33333333333331" y="712" width="45" height="35"/>
-                                <color key="backgroundColor" systemColor="systemPinkColor"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="35" id="4kC-5Y-Z9n"/>
-                                    <constraint firstAttribute="width" constant="45" id="7Av-lk-zI1"/>
-                                </constraints>
-                                <state key="normal" title="Button"/>
-                                <buttonConfiguration key="configuration" style="plain" image="done-2"/>
-                            </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="0lq-ao-agZ">
                                 <rect key="frame" x="249.33333333333337" y="712" width="45" height="35"/>
                                 <constraints>
@@ -264,6 +254,19 @@
                                 <buttonConfiguration key="configuration" style="plain" image="delete"/>
                                 <connections>
                                     <action selector="discardButtonDidTapped:" destination="KHh-Fj-MpP" eventType="touchUpInside" id="PLS-pa-rRV"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="GvD-1B-18F">
+                                <rect key="frame" x="294" y="712" width="45" height="35"/>
+                                <color key="backgroundColor" systemColor="systemPinkColor"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="35" id="4kC-5Y-Z9n"/>
+                                    <constraint firstAttribute="width" constant="45" id="7Av-lk-zI1"/>
+                                </constraints>
+                                <state key="normal" title="Button"/>
+                                <buttonConfiguration key="configuration" style="plain" image="done-2"/>
+                                <connections>
+                                    <action selector="saveButtonDidTapped:" destination="KHh-Fj-MpP" eventType="touchUpInside" id="LQm-YL-Xa4"/>
                                 </connections>
                             </button>
                         </subviews>
@@ -343,6 +346,32 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="RDM-4M-FeX" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1052.6717557251909" y="1984.5070422535211"/>
+        </scene>
+        <!--Preview Captured View Controller-->
+        <scene sceneID="YKb-9c-wzX">
+            <objects>
+                <viewController storyboardIdentifier="PreviewCapturedViewController" id="r1L-CT-iyF" customClass="PreviewCapturedViewController" customModule="SportyStories" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="mpj-1o-CkA">
+                        <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="bhr-ax-lw0">
+                                <rect key="frame" x="159" y="408.66666666666669" width="75" height="35"/>
+                                <state key="normal" title="Button"/>
+                                <buttonConfiguration key="configuration" style="plain" title="Button"/>
+                            </button>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="q9N-nN-Mkc"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="bhr-ax-lw0" firstAttribute="centerY" secondItem="mpj-1o-CkA" secondAttribute="centerY" id="JAt-mT-lFk"/>
+                            <constraint firstItem="bhr-ax-lw0" firstAttribute="centerX" secondItem="mpj-1o-CkA" secondAttribute="centerX" id="Qin-5P-7mE"/>
+                        </constraints>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="UW2-b8-f3B" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1906" y="1985"/>
         </scene>
         <!--Inbox-->
         <scene sceneID="Vie-Fu-50B">
