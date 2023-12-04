@@ -31,8 +31,8 @@ class PreviewCapturedViewController: UIViewController {
     
     @IBOutlet weak var thumbnailImageView: UIImageView!
     
+    @IBOutlet weak var nextButton: UIButton!
     
-   
     override func viewDidLoad() {
         super.viewDidLoad()
         handleStartPlayingFirstClip()
@@ -85,6 +85,11 @@ class PreviewCapturedViewController: UIViewController {
         }
     }
     
+    func setupView() {
+        nextButton.layer.cornerRadius = 2
+        nextButton.backgroundColor = UIColor(red: 254/255, green: 44/255, blue: 88/255, alpha: 1.0)
+    }
+    
     func setupPlayerView(with videoClip: VideoClips){
         let player = AVPlayer(url: videoClip.videoUrl)
         let playerLayer = AVPlayerLayer(player: player)
@@ -132,6 +137,40 @@ class PreviewCapturedViewController: UIViewController {
         }
     }
     
+
     @IBAction func cancelButtonDidTapped(_ sender: Any) {
+        hideStatusBar = true
+        navigationController?.popViewController(animated: true)
+    }
+    
+    func handleMargeClips(){
+        //ejecutando funcion de clase videoCompositionwrite
+        VideoCompositionWriter().mergeMultipleVideo(urls: urlsForVids) { success, outputURL in
+            if success {
+                guard let outputURLunwrapped = outputURL else {return}
+                print("outputURLunwrapped:", outputURLunwrapped)
+                
+                DispatchQueue.main.async {
+                    let player = AVPlayer(url: outputURLunwrapped)
+                    let vc = AVPlayerViewController()
+                    vc.player = player
+                    
+                    self.present(vc,animated: true){
+                        vc.player?.play()
+                    }
+                }
+            }
+        }
+    }
+    
+    @IBAction func nextButtonDidTapped(_ sender: Any) {
+        handleMargeClips()
+        hideStatusBar = false
+        let shareVC = UIStoryboard(name: "Main", bundle: .main).instantiateViewController(identifier: "SharePostViewController", creator: { coder -> SharePostViewController? in
+            SharePostViewController(coder: coder, videoUrl: self.currentlyPlayingVideoClip.videoUrl)
+        })
+        shareVC.selectedPhoto = thumbnailImageView.image
+        navigationController?.pushViewController(shareVC, animated: true)
+        return
     }
 }
