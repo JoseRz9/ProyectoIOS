@@ -27,6 +27,23 @@ class SharePostViewController: UIViewController {
         setupView()
         textViewDidChanged()
         self.view.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(hideKeyboard)))
+        
+        if let thumbnailImage = self.thumbnailImageForFileUrl(originalVideoUrl) {
+            self.selectedPhoto = thumbnailImage.imageRotated(by: .pi/2)
+            thumbnailImageView.image = thumbnailImage.imageRotated(by: .pi/2)
+        }
+    }
+    
+    func thumbnailImageForFileUrl(_ fileUrl: URL) -> UIImage? {
+        let asset = AVAsset(url: fileUrl)
+        let imageGenerator = AVAssetImageGenerator(asset: asset)
+        do {
+            let thumbnailCGImage = try imageGenerator.copyCGImage(at: CMTimeMake(value: 7, timescale: 1), actualTime: nil)
+            return UIImage(cgImage: thumbnailCGImage)
+        } catch let error {
+            print(error)
+        }
+        return nil
     }
     
     @objc func hideKeyboard() {
@@ -80,5 +97,25 @@ extension SharePostViewController: UITextViewDelegate {
             textView.text = placeholder
             textView.textColor = .lightGray
         }
+    }
+}
+
+extension UIImage {
+    func imageRotated(by radian: CGFloat) -> UIImage{
+        let rotatedSize = CGRect(origin: .zero, size: size)
+            .applying(CGAffineTransform(rotationAngle: radian))
+            .integral.size
+        UIGraphicsBeginImageContext(rotatedSize)
+        if let context = UIGraphicsGetCurrentContext() {
+            let origin = CGPoint(x: rotatedSize.width / 2.0,
+                                 y: rotatedSize.height / 2.0)
+            context.translateBy(x: origin.x, y: origin.y)
+            context.rotate(by: radian)
+            draw(in: CGRect(x: -origin.y, y: -origin.x, width: size.width, height: size.height))
+            let rotatedImage = UIGraphicsGetImageFromCurrentImageContext()
+            UIGraphicsEndImageContext()
+            return rotatedImage ?? self
+        }
+        return self
     }
 }
