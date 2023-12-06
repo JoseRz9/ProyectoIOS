@@ -22,7 +22,8 @@ let STATUS = "status"
 let IDENTIFIER_TABBAR = "TabbarVC"
 let IDENTIFIER_MAIN = "MainVC"
 class Ref {
-    let databaseRoot = Database.database().reference()
+    //let databaseRoot = Database.database().reference()
+    let databaseRoot = Database.database(url: "https://sportystories-910e8-default-rtdb.firebaseio.com/").reference()
     
     var databaseUsers: DatabaseReference {
         return databaseRoot.child(REF_USER)

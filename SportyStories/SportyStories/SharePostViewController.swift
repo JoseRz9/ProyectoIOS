@@ -7,6 +7,7 @@
 
 import UIKit
 import AVFoundation
+import ProgressHUD
 
 class SharePostViewController: UIViewController {
     
@@ -15,7 +16,7 @@ class SharePostViewController: UIViewController {
     @IBOutlet weak var textView: UITextView!
     @IBOutlet weak var thumbnailImageView: UIImageView!
     
-    
+    var encodedVideoURL : URL?
     let originalVideoUrl : URL
     var selectedPhoto: UIImage?
     
@@ -31,6 +32,11 @@ class SharePostViewController: UIViewController {
         if let thumbnailImage = self.thumbnailImageForFileUrl(originalVideoUrl) {
             self.selectedPhoto = thumbnailImage.imageRotated(by: .pi/2)
             thumbnailImageView.image = thumbnailImage.imageRotated(by: .pi/2)
+        }
+        
+        saveVideoTobeUploadedToServerToTempDirectory(sourceURL: originalVideoUrl) {[weak self] (outputURL) in
+            self?.encodedVideoURL = outputURL
+            print("encodedVideoURL:", outputURL)
         }
     }
     
@@ -76,7 +82,28 @@ class SharePostViewController: UIViewController {
     }
     
     
+    @IBAction func sharePostDidTapped(_ sender: Any) {
+        self.sharePost {
+            self.dismiss(animated: true) {
+                self.tabBarController?.selectedIndex = 0
+            }
+        } onError: { errorMessage in
+            ProgressHUD.showError(errorMessage)
+        }
+    }
+    
+    func sharePost(onSuccess: @escaping() -> Void, onError: @escaping(_ errorMessage: String) -> Void) {
+        ProgressHUD.show("Cargando...")
+        Api.Post.sharePost(encodedVideoURL: encodedVideoURL, selectedPhoto: selectedPhoto, textView: textView) {
+            ProgressHUD.dismiss()
+            onSuccess()
+        } onError: { errorMessage in
+            onError(errorMessage)
+        }
+    }
 }
+
+
 
 extension SharePostViewController: UITextViewDelegate {
     func textViewDidChanged() {

@@ -624,6 +624,9 @@
                                         <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <state key="normal" title="Button"/>
                                         <buttonConfiguration key="configuration" style="plain" title="Correo"/>
+                                        <connections>
+                                            <action selector="sharePostDidTapped:" destination="DGd-5e-co6" eventType="touchUpInside" id="TWX-pD-cqq"/>
+                                        </connections>
                                     </button>
                                 </subviews>
                                 <constraints>
