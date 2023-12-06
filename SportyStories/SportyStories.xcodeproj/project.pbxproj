@@ -31,6 +31,8 @@
 		5DD1F8792B2018EF00823818 /* PostApi.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5DD1F8782B2018EF00823818 /* PostApi.swift */; };
 		5DD1F87B2B20466B00823818 /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5DD1F87A2B20466B00823818 /* HomeViewController.swift */; };
 		5DD1F87D2B2046A900823818 /* HomeCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5DD1F87C2B2046A900823818 /* HomeCollectionViewCell.swift */; };
+		5DD1F87F2B20509A00823818 /* Post.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5DD1F87E2B20509A00823818 /* Post.swift */; };
+		5DD1F8812B2061AC00823818 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5DD1F8802B2061AC00823818 /* User.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -60,6 +62,8 @@
 		5DD1F8782B2018EF00823818 /* PostApi.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostApi.swift; sourceTree = "<group>"; };
 		5DD1F87A2B20466B00823818 /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
 		5DD1F87C2B2046A900823818 /* HomeCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeCollectionViewCell.swift; sourceTree = "<group>"; };
+		5DD1F87E2B20509A00823818 /* Post.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Post.swift; sourceTree = "<group>"; };
+		5DD1F8802B2061AC00823818 /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		65255DD348802709C3415554 /* Pods_SportyStories.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_SportyStories.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		E9B50E54A69A0926F457A82C /* Pods-SportyStories.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SportyStories.release.xcconfig"; path = "Target Support Files/Pods-SportyStories/Pods-SportyStories.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -121,6 +125,8 @@
 				5DD1F87C2B2046A900823818 /* HomeCollectionViewCell.swift */,
 				5DBB789E2ADF9CA800B7E4C6 /* Api.swift */,
 				5DD1F8782B2018EF00823818 /* PostApi.swift */,
+				5DD1F87E2B20509A00823818 /* Post.swift */,
+				5DD1F8802B2061AC00823818 /* User.swift */,
 				5DBB78A02ADF9CE100B7E4C6 /* UserApi.swift */,
 				5DBB78A22ADFA18000B7E4C6 /* StorageService.swift */,
 				5DBB78A42ADFA66700B7E4C6 /* Ref.swift */,
@@ -277,6 +283,8 @@
 				5D70626B2A988CEE00C48CBE /* SceneDelegate.swift in Sources */,
 				5DBB78A52ADFA66700B7E4C6 /* Ref.swift in Sources */,
 				5DD1F8792B2018EF00823818 /* PostApi.swift in Sources */,
+				5DD1F87F2B20509A00823818 /* Post.swift in Sources */,
+				5DD1F8812B2061AC00823818 /* User.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

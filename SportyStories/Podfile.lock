@@ -98,6 +98,9 @@ PODS:
   - ProgressHUD (2.70)
   - PromisesObjC (2.3.1)
   - RecaptchaInterop (100.0.0)
+  - SDWebImage (5.18.6):
+    - SDWebImage/Core (= 5.18.6)
+  - SDWebImage/Core (5.18.6)
 
 DEPENDENCIES:
   - FirebaseAnalytics
@@ -106,6 +109,7 @@ DEPENDENCIES:
   - FirebaseDatabase
   - FirebaseStorage
   - ProgressHUD
+  - SDWebImage
 
 SPEC REPOS:
   trunk:
@@ -127,6 +131,7 @@ SPEC REPOS:
     - ProgressHUD
     - PromisesObjC
     - RecaptchaInterop
+    - SDWebImage
 
 SPEC CHECKSUMS:
   FirebaseAnalytics: 7b41efc4eba5ff841cc94d5994b5f339361258f4
@@ -147,7 +152,8 @@ SPEC CHECKSUMS:
   ProgressHUD: e603e8b8622c47d8818b9fb38b3cfe9d3e7ca421
   PromisesObjC: c50d2056b5253dadbd6c2bea79b0674bd5a52fa4
   RecaptchaInterop: 7d1a4a01a6b2cb1610a47ef3f85f0c411434cb21
+  SDWebImage: 3d8caa2430f3d674dbb3e515df4a100a2105af5f
 
-PODFILE CHECKSUM: e514771ee71ab8f3b096372d5f5ca2eced30874c
+PODFILE CHECKSUM: 2a17df7c000c438d4169ef15505e64c6aa1d3226
 
 COCOAPODS: 1.13.0

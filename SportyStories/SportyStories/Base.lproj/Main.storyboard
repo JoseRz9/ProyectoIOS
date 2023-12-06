@@ -839,6 +839,9 @@
                                         <size key="customSize" width="393" height="751"/>
                                         <connections>
                                             <outlet property="avatar" destination="83o-go-l6B" id="eJV-dD-hdc"/>
+                                            <outlet property="descriptionLabel" destination="9Eu-p3-MLG" id="dtH-Il-vPV"/>
+                                            <outlet property="postVideo" destination="VAu-LG-dN9" id="GdQ-uB-1vM"/>
+                                            <outlet property="usernameLabel" destination="FOU-Pz-c3M" id="rLl-Od-Fns"/>
                                         </connections>
                                     </collectionViewCell>
                                 </cells>
