@@ -111,25 +111,12 @@
 			children = (
 				5D7062682A988CEE00C48CBE /* AppDelegate.swift */,
 				5D70626A2A988CEE00C48CBE /* SceneDelegate.swift */,
-				5D70626C2A988CEE00C48CBE /* ViewController.swift */,
-				5D7793692A9DBDD800C1C191 /* SignUpViewController.swift */,
-				5D5B3FED2ADE58A400382466 /* SignInViewController.swift */,
-				5D5590612AF1DC0100453D66 /* ProfileViewController.swift */,
-				5D5590632AF1E59200453D66 /* CreatePostViewController.swift */,
-				5D6C11162B159E0B00A820C0 /* SegmentedProgressView.swift */,
-				5DCD4D1B2B1AF93600FBE782 /* PreviewCapturedViewController.swift */,
-				5DB9E90A2B1DBFE200FBB3DE /* SharePostViewController.swift */,
-				5DB9E9082B1DA00100FBB3DE /* VideoCompositionWriter.swift */,
-				5DAE5B1B2B0F0914004B2879 /* VideoClips.swift */,
-				5DD1F87A2B20466B00823818 /* HomeViewController.swift */,
-				5DD1F87C2B2046A900823818 /* HomeCollectionViewCell.swift */,
-				5DBB789E2ADF9CA800B7E4C6 /* Api.swift */,
-				5DD1F8782B2018EF00823818 /* PostApi.swift */,
-				5DD1F87E2B20509A00823818 /* Post.swift */,
-				5DD1F8802B2061AC00823818 /* User.swift */,
-				5DBB78A02ADF9CE100B7E4C6 /* UserApi.swift */,
-				5DBB78A22ADFA18000B7E4C6 /* StorageService.swift */,
-				5DBB78A42ADFA66700B7E4C6 /* Ref.swift */,
+				5DB09F702B219DAB0040D442 /* Auth */,
+				5DB09F712B219DE20040D442 /* Utilities */,
+				5DB09F6F2B219D3B0040D442 /* Cells */,
+				5DB09F6E2B219CE70040D442 /* Controllers */,
+				5DB09F6C2B219BFA0040D442 /* API */,
+				5DB09F6D2B219C370040D442 /* Model */,
 				5D70626E2A988CEE00C48CBE /* Main.storyboard */,
 				5D7062712A988CF000C48CBE /* Assets.xcassets */,
 				5D7062732A988CF000C48CBE /* LaunchScreen.storyboard */,
@@ -137,6 +124,67 @@
 				5D5B3FEF2ADE60A400382466 /* GoogleService-Info.plist */,
 			);
 			path = SportyStories;
+			sourceTree = "<group>";
+		};
+		5DB09F6C2B219BFA0040D442 /* API */ = {
+			isa = PBXGroup;
+			children = (
+				5DB9E9082B1DA00100FBB3DE /* VideoCompositionWriter.swift */,
+				5DBB78A42ADFA66700B7E4C6 /* Ref.swift */,
+				5DBB78A22ADFA18000B7E4C6 /* StorageService.swift */,
+				5DBB78A02ADF9CE100B7E4C6 /* UserApi.swift */,
+				5DD1F8782B2018EF00823818 /* PostApi.swift */,
+				5DBB789E2ADF9CA800B7E4C6 /* Api.swift */,
+			);
+			path = API;
+			sourceTree = "<group>";
+		};
+		5DB09F6D2B219C370040D442 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				5DAE5B1B2B0F0914004B2879 /* VideoClips.swift */,
+				5DD1F8802B2061AC00823818 /* User.swift */,
+				5DD1F87E2B20509A00823818 /* Post.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		5DB09F6E2B219CE70040D442 /* Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				5D5590632AF1E59200453D66 /* CreatePostViewController.swift */,
+				5DCD4D1B2B1AF93600FBE782 /* PreviewCapturedViewController.swift */,
+				5D5590612AF1DC0100453D66 /* ProfileViewController.swift */,
+				5DD1F87A2B20466B00823818 /* HomeViewController.swift */,
+				5DB9E90A2B1DBFE200FBB3DE /* SharePostViewController.swift */,
+			);
+			path = Controllers;
+			sourceTree = "<group>";
+		};
+		5DB09F6F2B219D3B0040D442 /* Cells */ = {
+			isa = PBXGroup;
+			children = (
+				5DD1F87C2B2046A900823818 /* HomeCollectionViewCell.swift */,
+			);
+			path = Cells;
+			sourceTree = "<group>";
+		};
+		5DB09F702B219DAB0040D442 /* Auth */ = {
+			isa = PBXGroup;
+			children = (
+				5D5B3FED2ADE58A400382466 /* SignInViewController.swift */,
+				5D7793692A9DBDD800C1C191 /* SignUpViewController.swift */,
+				5D70626C2A988CEE00C48CBE /* ViewController.swift */,
+			);
+			path = Auth;
+			sourceTree = "<group>";
+		};
+		5DB09F712B219DE20040D442 /* Utilities */ = {
+			isa = PBXGroup;
+			children = (
+				5D6C11162B159E0B00A820C0 /* SegmentedProgressView.swift */,
+			);
+			path = Utilities;
 			sourceTree = "<group>";
 		};
 		DB4B815299335E86036F2054 /* Pods */ = {

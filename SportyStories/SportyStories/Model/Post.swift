@@ -26,11 +26,12 @@ class Post {
         post.imageUrl = dict["imageUrl"] as? String
         post.videoUrl = dict["videoUrl"] as? String
         post.description = dict["description"] as? String
-        let creationDouble = dict["creationDate"] as? Double ?? 0
-        post.creationDate = Date(timeIntervalSince1970: creationDouble)
         post.likes = dict["likes"] as? Int
         post.views = dict["views"] as? Int
         post.commentCount = dict["commentCount"] as? Int
+        let creationDouble = dict["creationDate"] as? Double ?? 0
+        post.creationDate = Date(timeIntervalSince1970: creationDouble)
+        
         return post
         
     }

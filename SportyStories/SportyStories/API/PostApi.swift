@@ -84,6 +84,27 @@ class PostApi {
             })
         }
     }
+    
+    func observePost(completion: @escaping (Post) -> Void) {
+        Ref().databaseRoot.child("Posts").observe(.childAdded) { snapshot in 
+            if let dict = snapshot.value as? [String: Any]{
+                let newPost = Post.transformPostVideo(dict: dict, key: snapshot.key)
+                completion(newPost)
+            }
+        }
+    }
+    
+    func observeFeedPosts(completion: @escaping (Post) -> Void) {
+        Ref().databaseRoot.child("Posts").observeSingleEvent(of: .value) { snapshot in
+            let arraySnapshot = (snapshot.children.allObjects as! [DataSnapshot]).reversed()
+            arraySnapshot.forEach { child in
+                if let dict = child.value as? [String: Any] {
+                    let post = Post.transformPostVideo(dict: dict, key: child.key)
+                    completion(post)
+                }
+            }
+        }
+    }
 }
 
 extension UIImageView {
