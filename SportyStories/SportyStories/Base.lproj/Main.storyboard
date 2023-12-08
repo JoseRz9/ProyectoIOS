@@ -36,7 +36,7 @@
                         <subviews>
                             <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="U71-v6-buZ">
                                 <rect key="frame" x="0.0" y="103" width="393" height="617"/>
-                                <color key="backgroundColor" white="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 <collectionViewFlowLayout key="collectionViewLayout" automaticEstimatedItemSize="YES" minimumLineSpacing="10" minimumInteritemSpacing="10" id="eCS-ZS-Cv5">
                                     <size key="itemSize" width="128" height="128"/>
                                     <size key="headerReferenceSize" width="50" height="389"/>
@@ -50,7 +50,39 @@
                                         <collectionViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" id="AgM-zo-fD9">
                                             <rect key="frame" x="0.0" y="0.0" width="127.99999999999997" height="128"/>
                                             <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="HOJ-hs-e2g">
+                                                    <rect key="frame" x="0.0" y="0.0" width="128" height="128"/>
+                                                </imageView>
+                                                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="play" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="VJA-tM-pLi">
+                                                    <rect key="frame" x="5" y="105" width="20" height="16"/>
+                                                    <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="width" constant="20" id="BjK-Ot-8Y6"/>
+                                                        <constraint firstAttribute="height" constant="20" id="JXy-Pw-Ot6"/>
+                                                    </constraints>
+                                                </imageView>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="145,0K" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="dK6-iM-hkG">
+                                                    <rect key="frame" x="26.999999999999996" y="104.66666666666667" width="44.666666666666657" height="17"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                                    <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                            </subviews>
+                                            <constraints>
+                                                <constraint firstAttribute="bottom" secondItem="VJA-tM-pLi" secondAttribute="bottom" constant="5" id="CuK-W9-aT3"/>
+                                                <constraint firstItem="HOJ-hs-e2g" firstAttribute="leading" secondItem="AgM-zo-fD9" secondAttribute="leading" id="RSu-A0-YOk"/>
+                                                <constraint firstItem="VJA-tM-pLi" firstAttribute="leading" secondItem="AgM-zo-fD9" secondAttribute="leading" constant="5" id="TzZ-4L-Sof"/>
+                                                <constraint firstAttribute="trailing" secondItem="HOJ-hs-e2g" secondAttribute="trailing" id="aFX-gX-oBB"/>
+                                                <constraint firstItem="dK6-iM-hkG" firstAttribute="centerY" secondItem="VJA-tM-pLi" secondAttribute="centerY" id="bFv-F2-UgS"/>
+                                                <constraint firstItem="HOJ-hs-e2g" firstAttribute="top" secondItem="AgM-zo-fD9" secondAttribute="top" id="bcD-Ai-BSo"/>
+                                                <constraint firstItem="dK6-iM-hkG" firstAttribute="leading" secondItem="VJA-tM-pLi" secondAttribute="trailing" constant="2" id="goj-Pc-OZ3"/>
+                                                <constraint firstAttribute="bottom" secondItem="HOJ-hs-e2g" secondAttribute="bottom" id="sOt-pB-OFi"/>
+                                            </constraints>
                                         </collectionViewCellContentView>
+                                        <connections>
+                                            <outlet property="postImage" destination="HOJ-hs-e2g" id="kfi-3B-G4b"/>
+                                        </connections>
                                     </collectionViewCell>
                                 </cells>
                                 <collectionReusableView key="sectionHeaderView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="ProfileHeaderCollectionReusableView" id="spG-Y0-04y" customClass="ProfileHeaderCollectionReusableView" customModule="SportyStories" customModuleProvider="target">
@@ -1488,6 +1520,7 @@
         <image name="instagram" width="64" height="64"/>
         <image name="menssaje" width="64" height="64"/>
         <image name="music" width="16" height="16"/>
+        <image name="play" catalog="system" width="117" height="128"/>
         <image name="plus" width="16" height="16"/>
         <image name="profile" width="24" height="24"/>
         <image name="profile_imagen" width="640" height="427"/>

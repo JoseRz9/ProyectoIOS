@@ -94,6 +94,15 @@ class PostApi {
         }
     }
     
+    func observeSinglePost(postId id: String, completion: @escaping (Post) -> Void) {
+        Ref().databaseRoot.child("Posts").child(id).observeSingleEvent(of: .value) { snapshot in
+            if let dict = snapshot.value as? [String: Any] {
+                let newPost = Post.transformPostVideo(dict: dict, key: snapshot.key)
+                completion(newPost)
+            }
+        }
+    }
+    
     func observeFeedPosts(completion: @escaping (Post) -> Void) {
         Ref().databaseRoot.child("Posts").observeSingleEvent(of: .value) { snapshot in
             let arraySnapshot = (snapshot.children.allObjects as! [DataSnapshot]).reversed()
