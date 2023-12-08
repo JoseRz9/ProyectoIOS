@@ -183,6 +183,12 @@
                                         <constraint firstItem="JjO-Ua-DHU" firstAttribute="centerX" secondItem="taB-OF-5KX" secondAttribute="centerX" id="yf4-hF-cQd"/>
                                         <constraint firstItem="T6v-vh-Wqj" firstAttribute="top" secondItem="RSh-DC-H4C" secondAttribute="bottom" constant="5" id="ztP-YG-7UR"/>
                                     </constraints>
+                                    <connections>
+                                        <outlet property="avatar" destination="KzI-DY-mUe" id="PDU-Qw-OGA"/>
+                                        <outlet property="editProfileButton" destination="FX2-Lc-Fcq" id="gT5-Ro-NhN"/>
+                                        <outlet property="favoriteButton" destination="cHf-3p-iPH" id="70f-Tf-k6n"/>
+                                        <outlet property="username" destination="LuV-3V-6wI" id="Bll-eF-Ggv"/>
+                                    </connections>
                                 </collectionReusableView>
                                 <connections>
                                     <outlet property="dataSource" destination="hpd-88-vTl" id="VeQ-xO-c17"/>

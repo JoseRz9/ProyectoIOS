@@ -80,6 +80,17 @@ class UserApi{
         })
     }
     
+    //llenando campos de usuario al cargar ventana user (Obtiene)
+    func observeProfileUser(completion: @escaping (User) -> Void) {
+        guard let uid = Auth.auth().currentUser?.uid else {return}
+        Ref().databaseRoot.child("users").child(uid).observeSingleEvent(of: .value) { snapshot in
+            if let dict = snapshot.value as? [String: Any] {
+                let user = User.transformUser(dict: dict, key: snapshot.key)
+                completion(user)
+            }
+        }
+    }
+    
     func logOut(){
         do{
             try Auth.auth().signOut()

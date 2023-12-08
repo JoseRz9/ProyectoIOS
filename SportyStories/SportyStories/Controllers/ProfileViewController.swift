@@ -11,11 +11,23 @@ class ProfileViewController: UIViewController {
 
     
     @IBOutlet weak var collectionView: UICollectionView!
+    
+    var user: User!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
         collectionView.delegate = self
         collectionView.dataSource = self
+        fetchUser() //Ejecuta la funcion
+    }
+    
+    //funcion que obtiene datos de usuario
+    func fetchUser() {
+        Api.User.observeProfileUser { user in
+            self.user = user
+            self.collectionView.reloadData()
+        }
     }
     
     //accion del boton cerrar sesion profil
@@ -37,6 +49,10 @@ extension ProfileViewController: UICollectionViewDelegate, UICollectionViewDataS
     func collectionView(_ collectionView: UICollectionView, viewForSupplementaryElementOfKind kind: String, at indexPath: IndexPath) -> UICollectionReusableView {
         if kind == UICollectionView.elementKindSectionHeader {
             let headerViewCell = collectionView.dequeueReusableSupplementaryView(ofKind: kind, withReuseIdentifier: "ProfileHeaderCollectionReusableView", for: indexPath) as!ProfileHeaderCollectionReusableView
+            if let user = self.user {
+                headerViewCell.user = user
+            }
+            headerViewCell.setupView()
             return headerViewCell
         }
         return UICollectionReusableView()
