@@ -45,6 +45,14 @@ class ProfileViewController: UIViewController {
         }
     }
     
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "Profile_DetailSegue" {
+            let detailVC = segue.destination as! DetailViewController
+            let postId = sender as! String
+            detailVC.postId = postId
+        }
+    }
+    
     //accion del boton cerrar sesion profil
     @IBAction func logoutAction(_ sender: Any) {
         Api.User.logOut() //mandamos a traer la funcion de UserApi
@@ -62,6 +70,7 @@ extension ProfileViewController: UICollectionViewDelegate, UICollectionViewDataS
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "PostProfileCollectionViewCell", for: indexPath) as! PostProfileCollectionViewCell
         let post = posts[indexPath.item]
         cell.post = post
+        cell.delegate = self
         return cell
     }
     func collectionView(_ collectionView: UICollectionView, viewForSupplementaryElementOfKind kind: String, at indexPath: IndexPath) -> UICollectionReusableView {
@@ -85,5 +94,11 @@ extension ProfileViewController: UICollectionViewDelegate, UICollectionViewDataS
     }
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumInteritemSpacingForSectionAt section: Int) -> CGFloat {
         return 0
+    }
+}
+
+extension ProfileViewController: PostProfileCollectionViewCellDelegate {
+    func goToDetailVC(postId: String) {
+        performSegue(withIdentifier: "Profile_DetailSegue", sender: postId)
     }
 }

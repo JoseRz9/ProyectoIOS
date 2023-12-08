@@ -103,6 +103,8 @@ class PostApi {
         }
     }
     
+    
+    
     func observeFeedPosts(completion: @escaping (Post) -> Void) {
         Ref().databaseRoot.child("Posts").observeSingleEvent(of: .value) { snapshot in
             let arraySnapshot = (snapshot.children.allObjects as! [DataSnapshot]).reversed()

@@ -21,7 +21,7 @@ class HomeViewController: UIViewController {
         collectionView.automaticallyAdjustsScrollIndicatorInsets = false
         collectionView.delegate = self
         collectionView.dataSource = self
-        collectionView.collectionViewLayout = UICollectionViewFlowLayout()
+        //collectionView.collectionViewLayout = UICollectionViewFlowLayout()
         loadPosts()
     }
     
