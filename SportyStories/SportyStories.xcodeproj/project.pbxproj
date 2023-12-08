@@ -28,6 +28,8 @@
 		5DBB78A32ADFA18000B7E4C6 /* StorageService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5DBB78A22ADFA18000B7E4C6 /* StorageService.swift */; };
 		5DBB78A52ADFA66700B7E4C6 /* Ref.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5DBB78A42ADFA66700B7E4C6 /* Ref.swift */; };
 		5DCD4D1C2B1AF93600FBE782 /* PreviewCapturedViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5DCD4D1B2B1AF93600FBE782 /* PreviewCapturedViewController.swift */; };
+		5DD0B95B2B22DC8A00063EBE /* ProfileHeaderCollectionReusableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5DD0B95A2B22DC8A00063EBE /* ProfileHeaderCollectionReusableView.swift */; };
+		5DD0B95D2B22DCBA00063EBE /* PostProfileCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5DD0B95C2B22DCBA00063EBE /* PostProfileCollectionViewCell.swift */; };
 		5DD1F8792B2018EF00823818 /* PostApi.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5DD1F8782B2018EF00823818 /* PostApi.swift */; };
 		5DD1F87B2B20466B00823818 /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5DD1F87A2B20466B00823818 /* HomeViewController.swift */; };
 		5DD1F87D2B2046A900823818 /* HomeCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5DD1F87C2B2046A900823818 /* HomeCollectionViewCell.swift */; };
@@ -59,6 +61,8 @@
 		5DBB78A22ADFA18000B7E4C6 /* StorageService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StorageService.swift; sourceTree = "<group>"; };
 		5DBB78A42ADFA66700B7E4C6 /* Ref.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Ref.swift; sourceTree = "<group>"; };
 		5DCD4D1B2B1AF93600FBE782 /* PreviewCapturedViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PreviewCapturedViewController.swift; sourceTree = "<group>"; };
+		5DD0B95A2B22DC8A00063EBE /* ProfileHeaderCollectionReusableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileHeaderCollectionReusableView.swift; sourceTree = "<group>"; };
+		5DD0B95C2B22DCBA00063EBE /* PostProfileCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostProfileCollectionViewCell.swift; sourceTree = "<group>"; };
 		5DD1F8782B2018EF00823818 /* PostApi.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostApi.swift; sourceTree = "<group>"; };
 		5DD1F87A2B20466B00823818 /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
 		5DD1F87C2B2046A900823818 /* HomeCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeCollectionViewCell.swift; sourceTree = "<group>"; };
@@ -111,6 +115,8 @@
 			children = (
 				5D7062682A988CEE00C48CBE /* AppDelegate.swift */,
 				5D70626A2A988CEE00C48CBE /* SceneDelegate.swift */,
+				5DD0B95A2B22DC8A00063EBE /* ProfileHeaderCollectionReusableView.swift */,
+				5DD0B95C2B22DCBA00063EBE /* PostProfileCollectionViewCell.swift */,
 				5DB09F702B219DAB0040D442 /* Auth */,
 				5DB09F712B219DE20040D442 /* Utilities */,
 				5DB09F6F2B219D3B0040D442 /* Cells */,
@@ -318,6 +324,7 @@
 				5DD1F87D2B2046A900823818 /* HomeCollectionViewCell.swift in Sources */,
 				5D70626D2A988CEE00C48CBE /* ViewController.swift in Sources */,
 				5D5590622AF1DC0100453D66 /* ProfileViewController.swift in Sources */,
+				5DD0B95B2B22DC8A00063EBE /* ProfileHeaderCollectionReusableView.swift in Sources */,
 				5DD1F87B2B20466B00823818 /* HomeViewController.swift in Sources */,
 				5D7062692A988CEE00C48CBE /* AppDelegate.swift in Sources */,
 				5DCD4D1C2B1AF93600FBE782 /* PreviewCapturedViewController.swift in Sources */,
@@ -329,6 +336,7 @@
 				5D6C11172B159E0B00A820C0 /* SegmentedProgressView.swift in Sources */,
 				5DBB78A12ADF9CE100B7E4C6 /* UserApi.swift in Sources */,
 				5D70626B2A988CEE00C48CBE /* SceneDelegate.swift in Sources */,
+				5DD0B95D2B22DCBA00063EBE /* PostProfileCollectionViewCell.swift in Sources */,
 				5DBB78A52ADFA66700B7E4C6 /* Ref.swift in Sources */,
 				5DD1F8792B2018EF00823818 /* PostApi.swift in Sources */,
 				5DD1F87F2B20509A00823818 /* Post.swift in Sources */,
