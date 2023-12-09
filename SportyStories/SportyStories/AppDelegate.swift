@@ -16,11 +16,15 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.
         //configurando el boton de retroceso
-        UINavigationBar.appearance().tintColor = UIColor(red: 0/255, green: 0/255, blue: 255, alpha: 1)
+        UINavigationBar.appearance().tintColor = UIColor(red: 150/255, green: 0/255, blue: 150/255, alpha: 1)
         let backImg = UIImage(named: "chevron.backward")
         UINavigationBar.appearance().backIndicatorImage = backImg
         UINavigationBar.appearance().backIndicatorTransitionMaskImage = backImg
         UIBarButtonItem.appearance().setBackButtonTitlePositionAdjustment(.init(horizontal: -1000, vertical: 0), for: .default)
+        
+        UITabBar.appearance().tintColor = .purple
+        UITabBar.appearance().barTintColor = UIColor.black
+        
         FirebaseApp.configure()
         return true
     }

@@ -21,7 +21,7 @@
                             <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="U71-v6-buZ">
                                 <rect key="frame" x="0.0" y="103" width="393" height="617"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
-                                <collectionViewFlowLayout key="collectionViewLayout" automaticEstimatedItemSize="YES" minimumLineSpacing="10" minimumInteritemSpacing="10" id="eCS-ZS-Cv5">
+                                <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="eCS-ZS-Cv5">
                                     <size key="itemSize" width="128" height="128"/>
                                     <size key="headerReferenceSize" width="50" height="389"/>
                                     <size key="footerReferenceSize" width="0.0" height="0.0"/>
@@ -1744,7 +1744,7 @@
                             <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="MqF-E4-1eE">
                                 <rect key="frame" x="0.0" y="59" width="393" height="710"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
-                                <collectionViewFlowLayout key="collectionViewLayout" automaticEstimatedItemSize="YES" minimumLineSpacing="10" minimumInteritemSpacing="10" id="DSX-4a-g5V">
+                                <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="DSX-4a-g5V">
                                     <size key="itemSize" width="128" height="128"/>
                                     <size key="headerReferenceSize" width="50" height="389"/>
                                     <size key="footerReferenceSize" width="0.0" height="0.0"/>
@@ -1949,6 +1949,7 @@
                     <simulatedToolbarMetrics key="simulatedBottomBarMetrics"/>
                     <connections>
                         <outlet property="collectionView" destination="MqF-E4-1eE" id="WHb-Zr-z66"/>
+                        <segue destination="NmF-FH-wAI" kind="show" identifier="ProfileUser_DetailSegue" id="p5A-6F-4xc"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="rGM-8e-3Hr" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -1956,6 +1957,9 @@
             <point key="canvasLocation" x="1905" y="1313"/>
         </scene>
     </scenes>
+    <inferredMetricsTieBreakers>
+        <segue reference="q9q-2J-gV3"/>
+    </inferredMetricsTieBreakers>
     <resources>
         <image name="Logo2" width="500" height="500"/>
         <image name="beauty" width="24" height="24"/>
