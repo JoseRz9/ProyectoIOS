@@ -91,6 +91,15 @@ class UserApi{
         }
     }
     
+    func observeUsers(completion: @escaping (User) -> Void) {
+        Ref().databaseRoot.child("users").observe(.childAdded) { snapshot in
+            if let dict = snapshot.value as? [String: Any] {
+                let user = User.transformUser(dict: dict, key: snapshot.key)
+                completion(user)
+            }
+        }
+    }
+    
     func logOut(){
         do{
             try Auth.auth().signOut()
