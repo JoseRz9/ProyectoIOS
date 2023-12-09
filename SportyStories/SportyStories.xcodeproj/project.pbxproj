@@ -21,6 +21,7 @@
 		5D7062752A988CF000C48CBE /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5D7062732A988CF000C48CBE /* LaunchScreen.storyboard */; };
 		5D77936A2A9DBDD900C1C191 /* SignUpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D7793692A9DBDD800C1C191 /* SignUpViewController.swift */; };
 		5DAE5B1C2B0F0914004B2879 /* VideoClips.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5DAE5B1B2B0F0914004B2879 /* VideoClips.swift */; };
+		5DB11B2A2B241CAA00A459A1 /* ProfileUserViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5DB11B292B241CAA00A459A1 /* ProfileUserViewController.swift */; };
 		5DB9E9092B1DA00100FBB3DE /* VideoCompositionWriter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5DB9E9082B1DA00100FBB3DE /* VideoCompositionWriter.swift */; };
 		5DB9E90B2B1DBFE300FBB3DE /* SharePostViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5DB9E90A2B1DBFE200FBB3DE /* SharePostViewController.swift */; };
 		5DBB789F2ADF9CA900B7E4C6 /* Api.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5DBB789E2ADF9CA800B7E4C6 /* Api.swift */; };
@@ -57,6 +58,7 @@
 		5D7062762A988CF000C48CBE /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		5D7793692A9DBDD800C1C191 /* SignUpViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpViewController.swift; sourceTree = "<group>"; };
 		5DAE5B1B2B0F0914004B2879 /* VideoClips.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VideoClips.swift; sourceTree = "<group>"; };
+		5DB11B292B241CAA00A459A1 /* ProfileUserViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileUserViewController.swift; sourceTree = "<group>"; };
 		5DB9E9082B1DA00100FBB3DE /* VideoCompositionWriter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VideoCompositionWriter.swift; sourceTree = "<group>"; };
 		5DB9E90A2B1DBFE200FBB3DE /* SharePostViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SharePostViewController.swift; sourceTree = "<group>"; };
 		5DBB789E2ADF9CA800B7E4C6 /* Api.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Api.swift; sourceTree = "<group>"; };
@@ -121,9 +123,6 @@
 			children = (
 				5D7062682A988CEE00C48CBE /* AppDelegate.swift */,
 				5D70626A2A988CEE00C48CBE /* SceneDelegate.swift */,
-				5DD0B95A2B22DC8A00063EBE /* ProfileHeaderCollectionReusableView.swift */,
-				5DD0B95C2B22DCBA00063EBE /* PostProfileCollectionViewCell.swift */,
-				5DD0B95F2B22F99A00063EBE /* DetailViewController.swift */,
 				5DB09F702B219DAB0040D442 /* Auth */,
 				5DB09F712B219DE20040D442 /* Utilities */,
 				5DB09F6F2B219D3B0040D442 /* Cells */,
@@ -165,11 +164,13 @@
 		5DB09F6E2B219CE70040D442 /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
+				5DD0B95F2B22F99A00063EBE /* DetailViewController.swift */,
 				5D5590632AF1E59200453D66 /* CreatePostViewController.swift */,
 				5DCD4D1B2B1AF93600FBE782 /* PreviewCapturedViewController.swift */,
 				5DD0B9612B2308DB00063EBE /* PeopleTableViewController.swift */,
 				5D5590612AF1DC0100453D66 /* ProfileViewController.swift */,
 				5DD1F87A2B20466B00823818 /* HomeViewController.swift */,
+				5DB11B292B241CAA00A459A1 /* ProfileUserViewController.swift */,
 				5DB9E90A2B1DBFE200FBB3DE /* SharePostViewController.swift */,
 			);
 			path = Controllers;
@@ -178,6 +179,7 @@
 		5DB09F6F2B219D3B0040D442 /* Cells */ = {
 			isa = PBXGroup;
 			children = (
+				5DD0B95C2B22DCBA00063EBE /* PostProfileCollectionViewCell.swift */,
 				5DD1F87C2B2046A900823818 /* HomeCollectionViewCell.swift */,
 				5DD0B9632B23091D00063EBE /* PeopleTableViewCell.swift */,
 			);
@@ -197,6 +199,7 @@
 		5DB09F712B219DE20040D442 /* Utilities */ = {
 			isa = PBXGroup;
 			children = (
+				5DD0B95A2B22DC8A00063EBE /* ProfileHeaderCollectionReusableView.swift */,
 				5D6C11162B159E0B00A820C0 /* SegmentedProgressView.swift */,
 			);
 			path = Utilities;
@@ -345,6 +348,7 @@
 				5D5590642AF1E59200453D66 /* CreatePostViewController.swift in Sources */,
 				5DB9E9092B1DA00100FBB3DE /* VideoCompositionWriter.swift in Sources */,
 				5DD0B9602B22F99A00063EBE /* DetailViewController.swift in Sources */,
+				5DB11B2A2B241CAA00A459A1 /* ProfileUserViewController.swift in Sources */,
 				5D6C11172B159E0B00A820C0 /* SegmentedProgressView.swift in Sources */,
 				5DBB78A12ADF9CE100B7E4C6 /* UserApi.swift in Sources */,
 				5D70626B2A988CEE00C48CBE /* SceneDelegate.swift in Sources */,

@@ -79,4 +79,12 @@ class PeopleTableViewController: UITableViewController, UISearchResultsUpdating 
         return 80
     }
 
+    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        if let cell = tableView.cellForRow(at: indexPath) as? PeopleTableViewCell {
+            let storyboard = UIStoryboard(name: "Main", bundle: nil)
+            let profileUserVC = storyboard.instantiateViewController(withIdentifier: "ProfileUserViewController") as! ProfileUserViewController
+            profileUserVC.userId = cell.user!.uid!
+            self.navigationController?.pushViewController(profileUserVC, animated: true)
+        }
+    }
 }
