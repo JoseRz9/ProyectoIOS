@@ -61,9 +61,9 @@ class ProfileViewController: UIViewController {
     }
     
     //accion del boton cerrar sesion profil
-    @IBAction func logoutAction(_ sender: Any) {
+    /*@IBAction func logoutAction(_ sender: Any) {
         Api.User.logOut() //mandamos a traer la funcion de UserApi
-    }
+    }*/
     
 }
 

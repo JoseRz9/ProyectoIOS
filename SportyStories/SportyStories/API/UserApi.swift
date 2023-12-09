@@ -71,6 +71,18 @@ class UserApi{
         }
     }
     
+    func saveUserProfile(dict: Dictionary<String,Any>, onSuccess: @escaping() -> Void, onError: @escaping(_ errorMessage: String) -> Void) {
+        guard let uid = Auth.auth().currentUser?.uid else {return}
+        Ref().databaseRoot.child("users").child(uid).updateChildValues(dict){ error, dataRef in
+            if error != nil {
+                onError(error!.localizedDescription)
+                return
+            }
+            onSuccess()
+        }
+    }
+    
+    //muestra informacion del usuariop
     func observeUser(withId uid: String, completion: @escaping (User) -> Void) {
         Ref().databaseRoot.child("users").child(uid).observeSingleEvent(of: .value, with: { snapshot in
             if let dict = snapshot.value as? [String: Any] {
@@ -110,6 +122,31 @@ class UserApi{
         let scene = UIApplication.shared.connectedScenes.first
         if let sd: SceneDelegate = (scene?.delegate as? SceneDelegate){
             sd.configureInitialViewController()
+        }
+    }
+    
+    func deleteAccount(){
+        guard let uid = Auth.auth().currentUser?.uid else {return}
+        let storage = Ref().storageRoot
+        let ref = Ref().databaseRoot
+        
+        ref.child("users").child(uid).removeValue { error, ref in
+            if error != nil {
+                ProgressHUD.showError()
+            }
+        }
+        Auth.auth().currentUser?.delete { error in
+            if error != nil {
+                ProgressHUD.showError()
+            }
+        }
+        let profileRef = storage.child("profile").child(uid)
+        profileRef.delete { error in
+            if error != nil {
+                ProgressHUD.showError()
+            } else {
+                ProgressHUD.showSuccess()
+            }
         }
     }
 }

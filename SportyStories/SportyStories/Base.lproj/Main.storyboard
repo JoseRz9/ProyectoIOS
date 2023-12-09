@@ -225,13 +225,7 @@
                         </constraints>
                     </view>
                     <toolbarItems/>
-                    <navigationItem key="navigationItem" id="1g1-AX-Daz">
-                        <barButtonItem key="leftBarButtonItem" title="Cerrar Sesion" id="KVv-v7-10g">
-                            <connections>
-                                <action selector="logoutAction:" destination="hpd-88-vTl" id="bkt-Wz-OAc"/>
-                            </connections>
-                        </barButtonItem>
-                    </navigationItem>
+                    <navigationItem key="navigationItem" id="1g1-AX-Daz"/>
                     <simulatedToolbarMetrics key="simulatedBottomBarMetrics"/>
                     <connections>
                         <outlet property="collectionView" destination="U71-v6-buZ" id="xqD-PZ-WDY"/>
@@ -330,7 +324,15 @@
                             <constraint firstItem="UCX-SN-l3G" firstAttribute="trailing" secondItem="j0O-cy-O6s" secondAttribute="trailing" id="zOd-1z-Xwf"/>
                         </constraints>
                     </view>
-                    <navigationItem key="navigationItem" id="VtG-Xh-oSk"/>
+                    <toolbarItems/>
+                    <navigationItem key="navigationItem" id="VtG-Xh-oSk">
+                        <barButtonItem key="rightBarButtonItem" title="Guardar" id="zB3-cF-ckB">
+                            <connections>
+                                <action selector="saveButtonDidTapped:" destination="7BS-k8-i9O" id="y4e-SR-1vl"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
+                    <simulatedToolbarMetrics key="simulatedBottomBarMetrics"/>
                     <connections>
                         <outlet property="avatar" destination="hXQ-CJ-3aD" id="d2v-aV-k0w"/>
                         <outlet property="logoutButton" destination="BeP-YV-hkL" id="RAh-F0-Wyc"/>
