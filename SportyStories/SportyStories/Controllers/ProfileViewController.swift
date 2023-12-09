@@ -45,6 +45,13 @@ class ProfileViewController: UIViewController {
         }
     }
     
+    
+    @IBAction func editProfileDidTapped(_ sender: Any) {
+        let storyboard = UIStoryboard(name: "Main", bundle: nil)
+        let editVC = storyboard.instantiateViewController(withIdentifier: "EditProfileViewController") as! EditProfileViewController
+        self.navigationController?.pushViewController(editVC, animated: true)
+    }
+    
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "Profile_DetailSegue" {
             let detailVC = segue.destination as! DetailViewController
