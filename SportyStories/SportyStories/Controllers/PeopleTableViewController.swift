@@ -7,14 +7,27 @@
 
 import UIKit
 
-class PeopleTableViewController: UITableViewController {
-
-    var users: [User] = []
+class PeopleTableViewController: UITableViewController, UISearchResultsUpdating {
     
+    var users: [User] = []
+    var searchController: UISearchController = UISearchController(searchResultsController: nil)
+    var searchResults: [User] = []
     override func viewDidLoad() {
         super.viewDidLoad()
 
         fetchUser()
+        
+        setupSearchController()
+    }
+    
+    // control filtra usuarios
+    func setupSearchController() {
+        searchController.searchResultsUpdater = self
+        searchController.obscuresBackgroundDuringPresentation = false
+        searchController.searchBar.placeholder = "Busqueda de usuario..."
+        searchController.searchBar.barTintColor = UIColor.white
+        navigationItem.hidesSearchBarWhenScrolling = false
+        navigationItem.searchController = searchController
     }
     
     func fetchUser() {
@@ -24,13 +37,31 @@ class PeopleTableViewController: UITableViewController {
         }
     }
 
+    func updateSearchResults(for searchController: UISearchController) {
+        if searchController.searchBar.text == nil || searchController.searchBar.text!.isEmpty {
+            view.endEditing(true)
+        } else {
+            let textLowercased = searchController.searchBar.text!.lowercased()
+            filterContent(for: textLowercased)
+        }
+        tableView.reloadData()
+    }
+    
+    func filterContent(for searchText: String) {
+        searchResults = self.users.filter{
+            return $0.username!.lowercased().range(of: searchText) != nil
+        }
+    }
+    
+    
     // MARK: - Table view data source
 
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        // #warning Incomplete implementation, return the number of rows
+        return searchController.isActive ? searchResults.count : self.users.count
+        
         //return 10
-        return self.users.count
+       // return self.users.count
     }
 
     
@@ -39,7 +70,7 @@ class PeopleTableViewController: UITableViewController {
         
         //cell.usernameLabel.text = "Usuario 1"
         //cell.avatar.image = UIImage(named: "profile_imagen")
-        let user = users[indexPath.row]
+        let user = searchController.isActive ? searchResults[indexPath.row] : users[indexPath.row]
         cell.user = user
         return cell
     }
