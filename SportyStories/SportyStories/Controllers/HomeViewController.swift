@@ -21,7 +21,7 @@ class HomeViewController: UIViewController {
         collectionView.automaticallyAdjustsScrollIndicatorInsets = false
         collectionView.delegate = self
         collectionView.dataSource = self
-        //collectionView.collectionViewLayout = UICollectionViewFlowLayout()
+        collectionView.collectionViewLayout = UICollectionViewFlowLayout() //comentar sino quemados
         loadPosts()
     }
     
@@ -86,16 +86,16 @@ class HomeViewController: UIViewController {
 
 extension HomeViewController: UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout {
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return posts.count
-        //return 10
+        //return posts.count
+        return 10
     }
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "homeCell", for: indexPath) as! HomeCollectionViewCell
         //comentar para mostrar datos quemados
-        let post = posts[indexPath.item]
-        let user = users[indexPath.item]
-        cell.post = post
-        cell.user = user
+        //let post = posts[indexPath.item]
+        //let user = users[indexPath.item]
+        //cell.post = post
+        //cell.user = user
         cell.delegate = self
         return cell
     }
