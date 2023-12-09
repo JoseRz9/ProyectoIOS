@@ -75,6 +75,13 @@ class HomeViewController: UIViewController {
         }
     }
     
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "Home_ProfileUserSegue" {
+            let profileUserVC = segue.destination as! ProfileUserViewController
+            let userId = sender as! String
+            profileUserVC.userId = userId
+        }
+    }
 }
 
 extension HomeViewController: UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout {
@@ -89,6 +96,7 @@ extension HomeViewController: UICollectionViewDelegate, UICollectionViewDataSour
         let user = users[indexPath.item]
         cell.post = post
         cell.user = user
+        cell.delegate = self
         return cell
     }
     
@@ -122,5 +130,11 @@ extension HomeViewController: UIScrollViewDelegate {
     func scrollViewDidEndDragging(_ scrollView: UIScrollView, willDecelerate decelerate: Bool) {
         let cell = self.collectionView.cellForItem(at: IndexPath(row: self.currentIndex, section: 0)) as? HomeCollectionViewCell
         cell?.replay()
+    }
+}
+
+extension HomeViewController: HomeCollectionViewCellDelegate {
+    func goToProfileUserVC(userId: String) {
+        performSegue(withIdentifier: "Home_ProfileUserSegue", sender: userId)
     }
 }

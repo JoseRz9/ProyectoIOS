@@ -1052,6 +1052,7 @@
                     <navigationItem key="navigationItem" id="gRL-dG-VMT"/>
                     <connections>
                         <outlet property="collectionView" destination="LGj-mf-XAs" id="G4Q-4Y-EOL"/>
+                        <segue destination="n7f-R1-gRF" kind="show" identifier="Home_ProfileUserSegue" id="oHt-Xf-d3S"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="XLW-Qr-JaZ" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -1742,7 +1743,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="MqF-E4-1eE">
-                                <rect key="frame" x="0.0" y="59" width="393" height="710"/>
+                                <rect key="frame" x="0.0" y="103" width="393" height="617"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="DSX-4a-g5V">
                                     <size key="itemSize" width="128" height="128"/>
@@ -1958,7 +1959,7 @@
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
-        <segue reference="q9q-2J-gV3"/>
+        <segue reference="p5A-6F-4xc"/>
     </inferredMetricsTieBreakers>
     <resources>
         <image name="Logo2" width="500" height="500"/>
